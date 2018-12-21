@@ -1,0 +1,11 @@
+/*
+Theme Name: Mobile Theme
+Author: Michael Plüss
+Description: New custom theme for the new Mobile website
+Version: 0.0.1
+Tags: mobile_theme
+*/
+
+p {
+    color: rgb(255,0,255);
+}
