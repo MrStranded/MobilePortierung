@@ -8,3 +8,7 @@ Michael Pluess/
 Vorgaben/
 
 develop/wordpress/wp-config\.php
+
+Vorgaben_advanced_custom_fields_includes/
+
+develop/wordpress/wp-config-sample\.php

@@ -2,4 +2,5 @@
 
 Datum | Angefangen | Aufgehört | Ziel | Erreicht
 ------|------------|-----------|------|---------
-21.12.18 | 13:30 | x | Einarbeiten in Strukturen | x
+21.12.18 | 13:30 | 14:00 | Einarbeiten in Strukturen | Wordpress setup und Update
+
