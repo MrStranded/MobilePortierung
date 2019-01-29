@@ -1,64 +1,73 @@
-
-
-<p>TESTESTESTEST</p>
-
 <?php
 
-	while(has_sub_field('inhalt')){
+while (has_sub_field('inhalt')) {
 
-		if(get_row_layout() == 'beschreibung'){
+    if (get_row_layout() == 'beschreibung') {
 
-            echo '<p>Debug!</p>';
-			echo '<div class="row">';
+        echo '<div class="row">';
 
-				if(get_sub_field('text')){
-					echo '<h1>' . get_sub_field('text') . '</h1>';
-				};
+        echo '<h1>' . get_the_title() . '</h1>';
 
-			echo '</div>';
+        // get image id
+        $image_id = get_sub_field('bild');
 
-		}
+        if ($image_id) {
 
-		elseif(get_row_layout() == 'team'){
+            // text output
+            if (get_sub_field('text')) {
+                echo '<p>' . get_sub_field('text') . '</p>';
+            };
 
-			echo '<div class="row team">';
+            // image output
+            echo wp_get_attachment_image($image_id, 'medium', "", array("class" => "alignright"));
 
-			    echo '<h1>Team</h1>';
+        } else {
 
-				if(have_rows('mitarbeiter')){
+            // text output
+            if (get_sub_field('text')) {
+                echo '<p>' . get_sub_field('text') . '</p>';
+            };
 
-					while(have_rows('mitarbeiter')){
-						the_row();
+        };
 
-						echo '<div class="col">';
+        echo '</div>';
 
-							// Setup
-							$image = get_field('bild');
+    } elseif (get_row_layout() == 'team') {
 
-							// Output
-							if($image){
-								$alt = trim($image['alt']);
-								$size = 'mitarbeiter';
+        echo '<div class="row team">';
 
-								echo '<img src="' . $image['sizes'][$size] . '" width="' . $image['sizes'][ $size . '-width' ] . '" height="' . $image['sizes'][ $size . '-height' ] . '"';
-									if($alt){
-										echo ' alt="' . $alt . '"';
-									};
-								echo '>';
+        echo '<h1>Team</h1>';
 
-							};
+        while (have_rows('mitarbeiter')) {
+            the_row();
 
-							echo '<p>' . get_sub_field('name') . '</p>';
+            echo '<div class="col">';
 
-						echo '</div>';
+            // Setup
+            $image_id = get_sub_field('bild');
 
-					};
+            // Output
+            if ($image_id) {
+                $alt = trim($image_id['alt']);
+                $size = 'mitarbeiter';
 
-				};
+                echo '<img src="' . $image_id['sizes'][$size] . '" width="' . $image_id['sizes'][$size . '-width'] . '" height="' . $image_id['sizes'][$size . '-height'] . '"';
+                if ($alt) {
+                    echo ' alt="' . $alt . '"';
+                };
+                echo '>';
 
-			echo '</div>';
+            };
 
-		};
+            echo '<p>' . get_sub_field('name') . '</p>';
 
-	};
+            echo '</div>';
+
+        };
+
+        echo '</div>';
+
+    };
+
+};
 ?>
