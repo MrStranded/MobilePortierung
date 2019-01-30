@@ -11,19 +11,27 @@ while (has_sub_field('inhalt')) {
 
         if ($image_id) {
 
+            echo '<div class="row">';
+
             // text output
             if (get_sub_field('text')) {
-                echo '<p>' . get_sub_field('text') . '</p>';
+                echo '<div class="col">';
+                    echo '<p>' . nl2br(get_sub_field('text')) . '</p>';
+                echo '</div>';
             };
 
             // image output
-            echo wp_get_attachment_image($image_id, 'medium', "", array("class" => "alignright"));
+            echo '<div class="col">';
+                echo wp_get_attachment_image($image_id, 'medium', "", array("class" => "alignright"));
+            echo '</div>';
+
+            echo '</div>';
 
         } else {
 
             // text output
             if (get_sub_field('text')) {
-                echo '<p>' . get_sub_field('text') . '</p>';
+                echo '<p>' . nl2br(get_sub_field('text')) . '</p>';
             };
 
         };

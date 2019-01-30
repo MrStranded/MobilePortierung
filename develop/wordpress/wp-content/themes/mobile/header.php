@@ -8,7 +8,7 @@
 	<meta name="description" content="">
 	<meta name="author" content="">
 
-	<title>Mobile Basel</title>
+	<title><?php echo get_bloginfo( 'name' ); ?></title>
 
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
 	<link href="<?php echo get_bloginfo( 'template_directory' );?>/style.css" rel="stylesheet">
@@ -23,8 +23,3 @@
 <body>
 
 	<div class="container">
-
-		<div class="blog-header">
-			<h1 class="blog-title"><a href="<?php echo get_bloginfo( 'wpurl' );?>"><?php echo get_bloginfo( 'name' ); ?></a></h1>
-			<p class="lead blog-description"><?php echo get_bloginfo( 'description' ); ?></p>
-		</div>
