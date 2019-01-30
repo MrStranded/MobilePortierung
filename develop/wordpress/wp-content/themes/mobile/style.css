@@ -18,8 +18,16 @@ Tags: mobile_theme
     font-style: normal;
 }
 
-body {
+.body {
     font-family: 'mobilebasel', Verdana, Geneva, Tahoma, Helvetica, Arial, sans-serif;
     font-weight:normal;
     font-size: 16px;
+}
+
+.row {
+    display: flex;
+}
+
+.col {
+    flex: 50%;
 }

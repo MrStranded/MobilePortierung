@@ -4,8 +4,6 @@ while (has_sub_field('inhalt')) {
 
     if (get_row_layout() == 'beschreibung') {
 
-        echo '<div class="row">';
-
         echo '<h1>' . get_the_title() . '</h1>';
 
         // get image id
@@ -30,11 +28,9 @@ while (has_sub_field('inhalt')) {
 
         };
 
-        echo '</div>';
-
     } elseif (get_row_layout() == 'team') {
 
-        echo '<div class="row team">';
+        echo '<div class="row-team">';
 
         echo '<h1>Team</h1>';
 

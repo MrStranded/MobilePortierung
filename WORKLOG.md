@@ -5,3 +5,4 @@ Date | Begun | Stopped | Goal | Result
 21.12.18 | 13:30 | 16:00 | Getting to know the structures | Wordpress setup und Update. Started on custom Mobile theme
 14.01.19 | 11:30 | 14:00 | Discussion on progress | Deeper insight into wordpress workflow
 29.01.19 | 15:00 | 16:30 | Show the basic Mobile theme | Images are showing (alignment not correct yet)
+30.01.19 | 13:30 | x | Move closer to design specs | x

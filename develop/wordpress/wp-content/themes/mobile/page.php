@@ -1,9 +1,15 @@
 <?php get_header(); ?>
 
-    <div class="page">
-        <?php include("flexible_content.php"); ?>
-    </div>
+    <div class="row">
 
-    <?php get_sidebar(); ?>
+        <div class="col">
+            <?php include("flexible_content.php"); ?>
+        </div>
+
+        <div class="col">
+            <?php get_sidebar(); ?>
+        </div>
+
+    </div>
 
 <?php get_footer(); ?>
