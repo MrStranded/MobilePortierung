@@ -32,8 +32,9 @@ while (has_sub_field('inhalt')) {
 
             $image_id = get_sub_field('bild');
             if ($image_id) {
-                echo '<div class="col">';
-                    echo wp_get_attachment_image($image_id, 'large', "", array("class" => "alignright"));
+                echo '<div class="col-image">';
+                    //echo wp_get_attachment_image($image_id, 'large', "", array("class" => "alignright"));
+                    echo '<img border="0" style="max-width: 100%;" src="' . wp_get_attachment_image_url($image_id, 'large') . '" />';
                 echo '</div>';
             };
 
