@@ -6,22 +6,8 @@ Version: 0.0.1
 Tags: mobile_theme
 */
 
-@font-face {
-    font-family: 'mobilebasel';
-    src: url('http://www.mobilebasel.ch/develop/wordpress/wp-content/themes/mobile/Webfont/Mobile2017-Book.eot');
-    src: url('http://mobilebasel.ch/develop/wordpress/wp-content/themes/mobile/Webfont/Mobile2017-Book.eot?#iefix') format('embedded-opentype'),
-        url('http://mobilebasel.ch/develop/wordpress/wp-content/themes/mobile/Webfont/Mobile2017-Book.woff2') format('woff2'),
-        url('http://mobilebasel.ch/develop/wordpress/wp-content/themes/mobile/Webfont/Mobile2017-Book.woff') format('woff'),
-        url('http://mobilebasel.ch/develop/wordpress/wp-content/themes/mobile/Webfont/Mobile2017-Book.ttf') format('truetype'),
-        url('http://mobilebasel.ch/develop/wordpress/wp-content/themes/mobile/Webfont/Mobile2017-Book.svg#bonmotregular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-
-.body {
-    font-family: 'mobilebasel', Verdana, Geneva, Tahoma, Helvetica, Arial, sans-serif;
-    font-weight: normal;
-    font-size: 16px;
+a {
+    color: black;
 }
 
 hr.dark {

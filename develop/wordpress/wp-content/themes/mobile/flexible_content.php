@@ -30,11 +30,14 @@ while (has_sub_field('inhalt')) {
 
             echo '</div>'; // /col
 
-            $image_id = get_sub_field('bild');
-            if ($image_id) {
+            $images = get_sub_field('bilder');
+            if ($images) {
                 echo '<div class="col-image">';
-                    //echo wp_get_attachment_image($image_id, 'large', "", array("class" => "alignright"));
-                    echo '<img border="0" style="max-width: 100%;" src="' . wp_get_attachment_image_url($image_id, 'large') . '" />';
+                    foreach( $images as $image ) :
+                        echo '<a href="' . $image['url'] . '">';
+                            echo '<img border="0" style="max-width: 100%;" src="' . wp_get_attachment_image_url($image['ID'], 'large') . '" />';
+                        echo '</a>';
+                    endforeach;
                 echo '</div>';
             };
 
@@ -53,16 +56,16 @@ while (has_sub_field('inhalt')) {
 
                 echo '<div class="row-member">';
 
-                    if (get_sub_field('name')) {
-                        echo '<div class="col">';
-                            echo '<p>' . get_sub_field('name') . '</p>';
-                        echo '</div>';
-                    };
-
                     $image_id = get_sub_field('bild');
                     if ($image_id) {
                         echo '<div class="col">';
-                            echo wp_get_attachment_image($image_id, 'thumbnail', true, array("class" => "alignright"));
+                        echo wp_get_attachment_image($image_id, 'thumbnail', true, array("class" => "alignright"));
+                        echo '</div>';
+                    };
+
+                    if (get_sub_field('name')) {
+                        echo '<div class="col">';
+                            echo '<p>' . get_sub_field('name') . '</p>';
                         echo '</div>';
                     };
 
