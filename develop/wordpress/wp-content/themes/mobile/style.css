@@ -22,6 +22,10 @@ hr.dark {
 
 .row-nomargin {
     display: flex;
+    margin: 0px;
+}
+.row-content {
+
 }
 .row-team {
 
