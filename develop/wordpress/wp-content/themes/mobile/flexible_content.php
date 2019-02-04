@@ -3,7 +3,8 @@
 echo '<div class="row-nomargin">';
     echo '<div class="col">';
 
-        while (has_sub_field('inhalt')) {
+        while (have_rows('inhalt')) {
+            the_row();
 
             if (get_row_layout() == 'beschreibung') {
 
@@ -15,13 +16,26 @@ echo '<div class="row-nomargin">';
 
                     echo '<div class="info">';
                         echo '<hr class="light">';
-                        if (get_sub_field('strasse')) { echo '<p class="info-text">' . get_sub_field('strasse') . '</p>'; };
-                        if (get_sub_field('ort')) { echo '<p class="info-text">' . get_sub_field('ort') . '</p>'; };
+                        if (get_sub_field('strasse') && get_sub_field('ort')) {
+                            $map_url = 'https://www.google.com/maps/search/?api=1&query=';
+                            $map_url = $map_url . urlencode_deep(get_sub_field('ort'));
+                            $map_url = $map_url . '+' . urlencode_deep(get_sub_field('strasse'));
+
+                            echo '<a class="info-text" target="_blank" href="' . $map_url . '"><p>' . get_sub_field('strasse') . '</p></a>';
+                            echo '<a class="info-text" target="_blank" href="' . $map_url . '"><p>' . get_sub_field('ort') . '</p></a>';
+                        } else {
+                            if (get_sub_field('strasse')) {
+                                echo '<p class="info-text">' . get_sub_field('strasse') . '</p>';
+                            };
+                            if (get_sub_field('ort')) {
+                                echo '<p class="info-text">' . get_sub_field('ort') . '</p>';
+                            };
+                        };
 
                         echo '<hr class="light">';
                         if (get_sub_field('telefon')) { echo '<p class="info-text">Tel.: ' . get_sub_field('telefon') . '</p>'; };
                         if (get_sub_field('fax')) { echo '<p class="info-text">Fax: ' . get_sub_field('fax') . '</p>'; };
-                        if (get_sub_field('email')) { echo '<p class="info-text">' . get_sub_field('email') . '</p>'; };
+                        if (get_sub_field('email')) { echo '<a class="info-text" href="mailto: ' . get_sub_field('email') . '">' . get_sub_field('email') . '</a>'; };
                     echo '</div>';
 
                     if (get_sub_field('text')) {
