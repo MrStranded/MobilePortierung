@@ -69,6 +69,12 @@ echo '<div class="row-nomargin">';
                                 if (get_sub_field('name')) {
                                     echo '<p>' . get_sub_field('name') . '</p>';
                                 };
+                                    if (get_sub_field('position')) {
+                                    echo '<p>' . get_sub_field('position') . '</p>';
+                                };
+                                if (get_sub_field('email')) {
+                                    echo '<a href="mailto: ' . get_sub_field('email') . '">' . get_sub_field('email') . '</a>';
+                                };
                             echo '</div>';
 
                         echo '</div>'; // /row-member
