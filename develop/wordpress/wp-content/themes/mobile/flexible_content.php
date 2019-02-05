@@ -89,15 +89,17 @@ echo '<div class="row-nomargin">';
 
     echo '</div>'; // /col
 
-    $images = get_field('bilder');
-    if ($images) {
-        echo '<div class="col-image">';
-        foreach( $images as $image ) :
-            echo '<a href="' . $image['url'] . '">';
-            echo '<img border="0" style="max-width: 100%;" src="' . wp_get_attachment_image_url($image['ID'], 'large') . '" />';
-            echo '</a>';
-        endforeach;
-        echo '</div>';
+    if (!wp_is_mobile()) {
+        $images = get_field('bilder');
+        if ($images) {
+            echo '<div class="col-image">';
+            foreach ($images as $image) :
+                echo '<a href="' . $image['url'] . '">';
+                echo '<img border="0" style="max-width: 100%;" src="' . wp_get_attachment_image_url($image['ID'], 'large') . '" />';
+                echo '</a>';
+            endforeach;
+            echo '</div>';
+        };
     };
 
 echo '</div>'; // / row-nomargin
