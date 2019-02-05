@@ -3,89 +3,103 @@
 echo '<div class="row-nomargin">';
     echo '<div class="col">';
 
+        $content = '[su_accordion]';
+
         while (have_rows('inhalt')) {
             the_row();
 
             if (get_row_layout() == 'beschreibung') {
 
-                echo '<div class="row-hr"><hr class="dark"></div>';
+                $content .= '[su_spoiler title="' . get_the_title() . '" open="yes"]';
 
-                echo '<div class="row-content">';
+                $content .= '<div class="row-hr"><hr class="dark"></div>';
 
-                    echo '<h1>' . get_the_title() . '</h1>';
+                $content .= '<div class="row-content">';
 
-                    echo '<div class="info">';
-                        echo '<hr class="light">';
+                    $content .= '<h1>' . get_the_title() . '</h1>';
+
+                    $content .= '<div class="info">';
+                        $content .= '<hr class="light">';
                         if (get_sub_field('strasse') && get_sub_field('ort')) {
                             $map_url = 'https://www.google.com/maps/search/?api=1&query=';
                             $map_url = $map_url . urlencode_deep(get_sub_field('ort'));
                             $map_url = $map_url . '+' . urlencode_deep(get_sub_field('strasse'));
 
-                            echo '<a class="info-text" target="_blank" href="' . $map_url . '"><p>' . get_sub_field('strasse') . '</p></a>';
-                            echo '<a class="info-text" target="_blank" href="' . $map_url . '"><p>' . get_sub_field('ort') . '</p></a>';
+                            $content .= '<a class="info-text" target="_blank" href="' . $map_url . '"><p>' . get_sub_field('strasse') . '</p></a>';
+                            $content .= '<a class="info-text" target="_blank" href="' . $map_url . '"><p>' . get_sub_field('ort') . '</p></a>';
                         } else {
                             if (get_sub_field('strasse')) {
-                                echo '<p class="info-text">' . get_sub_field('strasse') . '</p>';
+                                $content .= '<p class="info-text">' . get_sub_field('strasse') . '</p>';
                             };
                             if (get_sub_field('ort')) {
-                                echo '<p class="info-text">' . get_sub_field('ort') . '</p>';
+                                $content .= '<p class="info-text">' . get_sub_field('ort') . '</p>';
                             };
                         };
 
-                        echo '<hr class="light">';
-                        if (get_sub_field('telefon')) { echo '<p class="info-text">Tel.: ' . get_sub_field('telefon') . '</p>'; };
-                        if (get_sub_field('fax')) { echo '<p class="info-text">Fax: ' . get_sub_field('fax') . '</p>'; };
-                        if (get_sub_field('email')) { echo '<a class="info-text" href="mailto: ' . get_sub_field('email') . '">' . get_sub_field('email') . '</a>'; };
-                    echo '</div>';
+                        $content .= '<hr class="light">';
+                        if (get_sub_field('telefon')) { $content .= '<p class="info-text">Tel.: ' . get_sub_field('telefon') . '</p>'; };
+                        if (get_sub_field('fax')) { $content .= '<p class="info-text">Fax: ' . get_sub_field('fax') . '</p>'; };
+                        if (get_sub_field('email')) { $content .= '<a class="info-text" href="mailto: ' . get_sub_field('email') . '">' . get_sub_field('email') . '</a>'; };
+                    $content .= '</div>'; // info
 
                     if (get_sub_field('text')) {
-                        echo '<hr class="dark">';
-                        echo '<p>' . nl2br(get_sub_field('text')) . '</p>';
+                        $content .= '<hr class="dark">';
+                        $content .= '<p>' . nl2br(get_sub_field('text')) . '</p>';
                     };
 
-                echo '</div>'; // / row-content
+                $content .= '</div>'; // / row-content
+
+                $content .= '[/su_spoiler]';
 
             } elseif (get_row_layout() == 'team') {
 
-                echo '<div class="row-hr"><hr class="dark"></div>';
+                $content .= '[su_spoiler title="' . 'Team' . '" open="no"]';
 
-                echo '<div class="row-team">';
+                $content .= '<div class="row-hr"><hr class="dark"></div>';
 
-                    echo '<h1>Team</h1>';
+                $content .= '<div class="row-team">';
+
+                    $content .= '<h1>Team</h1>';
 
                     while (have_rows('mitarbeiter')) {
                         the_row();
 
-                        echo '<div class="row-member">';
+                            $content .= '<div class="row-member">';
 
-                            echo '<div class="col-image">';
+                                $content .= '<div class="col-image">';
                                 $image_id = get_sub_field('bild');
                                 if ($image_id) {
-                                    echo wp_get_attachment_image($image_id, 'thumbnail', true, array("class" => "alignright"));
+                                    $content .= wp_get_attachment_image($image_id, 'thumbnail', true, array("class" => "alignright"));
                                 };
-                            echo '</div>';
+                            $content .= '</div>';
 
-                            echo '<div class="col">';
+                            $content .= '<div class="col">';
                                 if (get_sub_field('name')) {
-                                    echo '<p>' . get_sub_field('name') . '</p>';
+                                    $content .= '<p>' . get_sub_field('name') . '</p>';
                                 };
                                     if (get_sub_field('position')) {
-                                    echo '<p>' . get_sub_field('position') . '</p>';
+                                        $content .= '<p>' . get_sub_field('position') . '</p>';
                                 };
                                 if (get_sub_field('email')) {
-                                    echo '<a href="mailto: ' . get_sub_field('email') . '">' . get_sub_field('email') . '</a>';
+                                    $content .= '<a href="mailto: ' . get_sub_field('email') . '">' . get_sub_field('email') . '</a>';
                                 };
-                            echo '</div>';
+                            $content .= '</div>';
 
-                        echo '</div>'; // /row-member
+                        $content .= '</div>'; // /row-member
 
                     };
 
-                echo '</div>'; // /row-team
+                $content .= '</div>'; // /row-team
+
+                $content .= '[/su_spoiler]';
 
             };
 
         };
+
+        $content .= '[/su_accordion]';
+
+        echo do_shortcode($content);
 
     echo '</div>'; // /col
 
