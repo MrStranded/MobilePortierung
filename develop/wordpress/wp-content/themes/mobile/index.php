@@ -2,17 +2,13 @@
 
 	<div class="row-nomargin">
 
-        <?php if (!wp_is_mobile()) { ?>
-            <div class="sidebar">
-                <?php get_sidebar(); ?>
-            </div>
-        <?php }; ?>
+        <?php get_sidebar(); ?>
 
-		<div class="content">
+        <?php if (!wp_is_mobile()) { echo '<div class="content">'; }; ?>
             <?php if ( have_posts() ) : while ( have_posts() ) : the_post();
 				get_template_part( 'content', get_post_format() );
 			endwhile; endif; ?>
-		</div> <!-- /.blog-main -->
+        <?php if (!wp_is_mobile()) { echo '</div>'; }; ?>
 
 	</div> <!-- /.row-nomargin -->
 

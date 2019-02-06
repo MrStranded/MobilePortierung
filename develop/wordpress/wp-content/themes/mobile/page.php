@@ -2,11 +2,7 @@
 
     <div class="row-nomargin">
 
-        <?php if (!wp_is_mobile()) { ?>
-            <div class="sidebar">
-                <?php get_sidebar(); ?>
-            </div>
-        <?php }; ?>
+        <?php get_sidebar(); ?>
 
         <?php if (!wp_is_mobile()) { echo '<div class="content">'; }; ?>
             <?php include("flexible_content.php"); ?>

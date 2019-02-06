@@ -51,14 +51,18 @@ hr.dark {
     flex: 50%;
 }
 
-.sidebar {
+.sidebar-desktop {
     flex: 25%;
+    margin-right: 20px;
+}
+.sidebar-mobile {
+    flex: 80%;
     margin-right: 20px;
 }
 
 .menu-container {
     display: inline-flex;
-    width: 100%;
+    width: inherit;
     margin: 0px;
 }
 .menu-filler {
