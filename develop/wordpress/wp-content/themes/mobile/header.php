@@ -24,6 +24,13 @@
 
     <?php if (wp_is_mobile()) { ?>
 	    <div class="container-mobile">
+
+            <div class="menu-container">
+                <div class="menu-filler"></div>
+                <div class="menu-button">
+                    <img style="width: 100%;" src="<?php echo get_template_directory_uri(); ?>/images/baseline_menu_black_48dp_2x.png" alt="Menu" />
+                </div>
+            </div>
     <?php } else { ?>
         <div class="container-desktop">
     <?php }; ?>

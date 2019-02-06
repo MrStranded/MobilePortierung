@@ -56,6 +56,18 @@ hr.dark {
     margin-right: 20px;
 }
 
+.menu-container {
+    display: inline-flex;
+    width: 100%;
+    margin: 0px;
+}
+.menu-filler {
+    flex: 80%;
+}
+.menu-button {
+    flex: 20%;
+}
+
 .content {
     flex: 75%;
 }
