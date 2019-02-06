@@ -8,3 +8,4 @@ Date | Begun | Stopped | Goal | Result
 30.01.19 | 13:30 | 16:30 | Move closer to design specs | Basic layout for desktop has correct structure
 04.02.19 | 16:00 | 17:30 | Include Mobile font | Included font, separated images from content and added automatic google map link creation
 05.02.19 | 14:30 | 17:00 | Implement Team details | Team details and started on mobile layout
+06.02.19 | 14:00 | x | Work on mobile version of website | x

@@ -22,4 +22,8 @@
 
 <body>
 
-	<div class="container">
+    <?php if (wp_is_mobile()) { ?>
+	    <div class="container-mobile">
+    <?php } else { ?>
+        <div class="container-desktop">
+    <?php }; ?>

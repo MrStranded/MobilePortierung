@@ -1,3 +1,6 @@
+
+        <hr class="dark">
+
         <footer class="blog-footer">
             <p><a href="#top">Back to top</a></p>
         </footer>

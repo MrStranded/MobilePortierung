@@ -3,20 +3,22 @@
 echo '<div class="row-nomargin">';
     echo '<div class="col">';
 
-        $content = '[su_accordion]';
+        $content = '';
+
+        $content .= '<div class="row-hr"><hr class="dark"></div>';
+        $content .= '<h1>' . get_the_title() . '</h1>';
+
+        $content .= '[su_accordion]';
 
         while (have_rows('inhalt')) {
             the_row();
 
             if (get_row_layout() == 'beschreibung') {
 
+                $content .= '<div class="row-hr"><hr class="dark"></div>';
                 $content .= '[su_spoiler title="' . get_the_title() . '" open="yes"]';
 
-                $content .= '<div class="row-hr"><hr class="dark"></div>';
-
                 $content .= '<div class="row-content">';
-
-                    $content .= '<h1>' . get_the_title() . '</h1>';
 
                     $content .= '<div class="info">';
                         $content .= '<hr class="light">';
@@ -53,9 +55,8 @@ echo '<div class="row-nomargin">';
 
             } elseif (get_row_layout() == 'team') {
 
-                $content .= '[su_spoiler title="' . 'Team' . '" open="no"]';
-
                 $content .= '<div class="row-hr"><hr class="dark"></div>';
+                $content .= '[su_spoiler title="' . 'Team' . '" open="no"]';
 
                 $content .= '<div class="row-team">';
 
@@ -95,7 +96,7 @@ echo '<div class="row-nomargin">';
 
             };
 
-        };
+        }; // while
 
         $content .= '[/su_accordion]';
 

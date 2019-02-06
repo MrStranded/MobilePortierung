@@ -8,9 +8,9 @@
             </div>
         <?php }; ?>
 
-        <div class="content">
+        <?php if (!wp_is_mobile()) { echo '<div class="content">'; }; ?>
             <?php include("flexible_content.php"); ?>
-        </div>
+        <?php if (!wp_is_mobile()) { echo '</div>'; }; ?>
 
     </div> <!-- /row-nomargin -->
 
