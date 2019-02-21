@@ -4,10 +4,16 @@
 
         <?php get_sidebar(); ?>
 
-        <?php if (!wp_is_mobile()) { echo '<div class="content">'; }; ?>
+        <?php
+            if (!wp_is_mobile()) {
+                echo '<div class="content-desktop">';
+            } else {
+                echo '<div class="content-mobile">';
+            };
+        ?>
             <?php include("flexible_content.php"); ?>
         <?php if (!wp_is_mobile()) { echo '</div>'; }; ?>
 
-    </div> <!-- /row-nomargin -->
+    </div> <!-- /.row-nomargin -->
 
 <?php get_footer(); ?>

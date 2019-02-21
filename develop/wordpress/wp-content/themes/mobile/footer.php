@@ -1,9 +1,10 @@
 
-        <hr class="dark">
-
-        <footer class="blog-footer">
-            <p><a href="#top">Back to top</a></p>
+        <div class="row-nomargin">
+            <footer class="blog-footer">
+                <hr class="dark">
+                <p><a href="#top">Nach oben</a></p>
         </footer>
+        </div>
 
     </div> <!-- /.container -->
 

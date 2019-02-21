@@ -9,3 +9,5 @@ Date | Begun | Stopped | Goal | Result
 04.02.19 | 16:00 | 17:30 | Include Mobile font | Included font, separated images from content and added automatic google map link creation
 05.02.19 | 14:30 | 17:00 | Implement Team details | Team details and started on mobile layout
 06.02.19 | 14:00 | 17:00 | Work on mobile version of website | Added the button (at least it's something)
+21.02.19 | 16:30 | 18:00 | Implement slide menu | Javascript is tricky. At least succeeded in adding scripts to site
+21.02.19 | 20:00 | 21:00 | Second attempt at javascripting | There is a sidemenu for mobile!
