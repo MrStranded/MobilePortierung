@@ -1,10 +1,4 @@
 
-        <div class="row-nomargin">
-            <footer class="blog-footer">
-                <hr class="dark">
-                <p><a href="#top">Nach oben</a></p>
-        </footer>
-        </div>
 
     </div> <!-- /.container -->
 
