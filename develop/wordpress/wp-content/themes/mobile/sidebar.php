@@ -1,10 +1,4 @@
-<?php
-    if (!wp_is_mobile()) {
-        echo '<div class="sidebar-desktop">';
-    } else {
-        echo ' <div class="sidebar-mobile" id="sidebar-mobile-id" style="display: none;">';
-    };
-?>
+<div class="sidebar" id="sidebar-id">
 
     <div class="pages">
 

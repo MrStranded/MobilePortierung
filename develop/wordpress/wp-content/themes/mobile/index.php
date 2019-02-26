@@ -4,17 +4,11 @@
 
         <?php get_sidebar(); ?>
 
-        <?php
-            if (!wp_is_mobile()) {
-                echo '<div class="content-desktop">';
-            } else {
-                echo '<div class="content-mobile">';
-            };
-        ?>
+        <div class="content">
             <?php if ( have_posts() ) : while ( have_posts() ) : the_post();
 				get_template_part( 'content', get_post_format() );
 			endwhile; endif; ?>
-        <?php if (!wp_is_mobile()) { echo '</div>'; }; ?>
+        </div>
 
     </div> <!-- /.row-nomargin -->
 

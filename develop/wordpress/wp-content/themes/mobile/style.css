@@ -66,28 +66,22 @@ html {
 a {
     color: black;
 }
+a:hover {
+    color: red;
+    text-decoration: none;
+}
 
 /* ---------------------------------------- encompassing environment for all content of page */
 
-.content-desktop {
+.content {
     flex: 75%;
-}
-.content-mobile {
-    flex: 100%;
 }
 /* ---------------------------------------- main container for content */
 
-.container-desktop {
+.container {
     width: 80%;
     padding-left: 10px;
     padding-top: 10px;
-    margin: 0 auto;
-}
-.container-mobile {
-    width: 100%;
-    padding-left: 10px;
-    padding-top: 10px;
-    padding-right: 10px;
     margin: 0 auto;
 }
 
@@ -158,21 +152,14 @@ hr.light {
 
 /* ---------------------------------------- sidebar */
 
-.sidebar-desktop {
+.sidebar {
     flex: 25%;
     margin-right: 20px;
 }
-.sidebar-mobile {
-    width: 100%;
-    padding-left: -10px;
-    position: absolute;
-    z-index: 1;
-    background-color: #ffffff;
-    top: 60px;
-}
 
 .sidebar-button {
-    display: inline-block;
+    display: block;
+    width: 100%;
     padding-top: 5px;
     padding-bottom: 7px;
     color: #8f98a1;
@@ -183,18 +170,19 @@ hr.light {
     text-decoration: none;
 }
 
-/* ---------------------------------------- top bar for mobile version of website */
+/* ---------------------------------------- top bar */
 
 .menu-container {
     display: inline-flex;
     width: inherit;
     margin: 0px;
 }
-.menu-filler {
-    flex: 85%;
+.menu-banner {
+    width: 25%;
 }
 .menu-button {
     flex: 15%;
+    display: none;
 }
 
 /* ---------------------------------------- info sub section */
@@ -204,4 +192,54 @@ hr.light {
 }
 .info-text {
     color: #8f98a1;
+}
+.info-link {
+    color: #8f98a1;
+}
+.info-link:hover {
+    color: red;
+    text-decoration: none;
+}
+
+/* ---------------------------------------- settings for mobile version fo website */
+
+@media screen and (max-width: 680px) {
+
+    .content {
+        flex: 100%;
+    }
+
+    .container {
+        width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+        margin: 0 auto;
+    }
+
+    .col-image {
+        display: none;
+    }
+
+    .menu-banner {
+        width: initial;
+        flex: 85%;
+    }
+    .menu-button {
+        display: block;
+    }
+
+    .sidebar {
+        flex: 100%;
+        width: 100%;
+        margin-right: 0;
+
+        position: absolute;
+        top: 60px;
+        z-index: 1;
+
+        background-color: #ffffff;
+
+        visibility: hidden;
+    }
+
 }

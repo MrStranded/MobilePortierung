@@ -31,11 +31,10 @@
 
 <body>
 
-    <?php if (wp_is_mobile()) { ?>
-	    <div class="container-mobile">
+	    <div class="container">
 
             <div class="menu-container">
-                <div class="menu-filler">
+                <div class="menu-banner">
                     <a href="<?php echo get_bloginfo( 'wpurl' );?>">
                         <img id="slide-menu-title" name="top" style="width: 100%;" src="<?php echo get_template_directory_uri(); ?>/images/mobile_basel_logo.svg" alt="Mobile Basel Banner" />
                     </a>
@@ -45,14 +44,6 @@
                     <img id="slide-menu-button-close" onclick="closeSidePanel()" style="width: 100%; display: none;" src="<?php echo get_template_directory_uri(); ?>/images/baseline_close_black_48dp_2x.png" alt="Close Menu" />
                 </div>
             </div>
-    <?php } else { ?>
-        <div class="container-desktop">
+            <p class="home-description"><?php echo get_bloginfo( 'description' ); ?></p>
 
-            <div class="home">
-                <a href="<?php echo get_bloginfo( 'wpurl' );?>">
-                    <img name="top" style="width: 25%;" src="<?php echo get_template_directory_uri(); ?>/images/mobile_basel_logo.svg" alt="Mobile Basel Banner" />
-                </a>
-                <p class="home-description"><?php echo get_bloginfo( 'description' ); ?></p>
-            </div>
 
-    <?php }; ?>
