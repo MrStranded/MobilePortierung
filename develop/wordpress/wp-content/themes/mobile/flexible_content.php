@@ -16,29 +16,37 @@ echo '<div class="row-nomargin">';
             if (get_row_layout() == 'beschreibung') {
 
                 $content .= '<div class="row-hr"><hr class="dark"></div>';
-                $content .= '[su_spoiler title="' . get_the_title() . '" open="yes"]';
+                //$content .= '[su_spoiler title="' . get_the_title() . '" open="yes"]';
 
                 $content .= '<div class="row-content">';
 
                     $content .= '<div class="info">';
-                        $content .= '<hr class="light">';
+
                         if (get_sub_field('strasse') && get_sub_field('ort')) {
+                            //$content .= '<hr class="light">';
+
                             $map_url = 'https://www.google.com/maps/search/?api=1&query=';
                             $map_url = $map_url . urlencode_deep(get_sub_field('ort'));
                             $map_url = $map_url . '+' . urlencode_deep(get_sub_field('strasse'));
 
-                            $content .= '<a class="info-text" target="_blank" href="' . $map_url . '"><p>' . get_sub_field('strasse') . '</p></a>';
-                            $content .= '<a class="info-text" target="_blank" href="' . $map_url . '"><p>' . get_sub_field('ort') . '</p></a>';
+                            $content .= '<a class="info-text" target="_blank" href="' . $map_url . '"><p>' . get_sub_field('strasse') . '</p>';
+                            $content .= '<p>' . get_sub_field('ort') . '</p></a>';
                         } else {
                             if (get_sub_field('strasse')) {
+                                //$content .= '<hr class="light">';
+
                                 $content .= '<p class="info-text">' . get_sub_field('strasse') . '</p>';
                             };
                             if (get_sub_field('ort')) {
+                                //$content .= '<hr class="light">';
+
                                 $content .= '<p class="info-text">' . get_sub_field('ort') . '</p>';
                             };
                         };
 
-                        $content .= '<hr class="light">';
+                        if (get_sub_field('telefon') || get_sub_field('fax') || get_sub_field('email')) {
+                            $content .= '<hr class="light">';
+                        };
                         if (get_sub_field('telefon')) { $content .= '<p class="info-text">Tel.: ' . get_sub_field('telefon') . '</p>'; };
                         if (get_sub_field('fax')) { $content .= '<p class="info-text">Fax: ' . get_sub_field('fax') . '</p>'; };
                         if (get_sub_field('email')) { $content .= '<a class="info-text" href="mailto: ' . get_sub_field('email') . '">' . get_sub_field('email') . '</a>'; };
@@ -51,7 +59,7 @@ echo '<div class="row-nomargin">';
 
                 $content .= '</div>'; // / row-content
 
-                $content .= '[/su_spoiler]';
+                //$content .= '[/su_spoiler]';
 
             } elseif (get_row_layout() == 'team') {
 

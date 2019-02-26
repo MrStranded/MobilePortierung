@@ -12,3 +12,4 @@ Date | Begun | Stopped | Goal | Result
 21.02.19 | 16:30 | 18:00 | Implement slide menu | Javascript is tricky. At least succeeded in adding scripts to site
 21.02.19 | 20:00 | 21:00 | Second attempt at javascripting | There is a sidemenu for mobile!
 22.02.19 | 13:15 | 14:30 | Aligning work goals and design with Michael Zehnder | Various design decisions and even a bugfix
+26.02.19 | 16:00 | x | Implement some of the insights from the discussion | x
