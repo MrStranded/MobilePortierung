@@ -19,7 +19,13 @@
     <![endif]-->
 
     <?php
-        $script = 'test';
+        $script = 'sidebar';
+        wp_enqueue_script($script, get_template_directory_uri() . '/js/' . $script . '.js');
+        $params = array('template_uri' => get_template_directory_uri());
+        wp_localize_script($script, 'params', $params);
+        wp_enqueue_script($script);
+
+        $script = 'topbar';
         wp_enqueue_script($script, get_template_directory_uri() . '/js/' . $script . '.js');
         $params = array('template_uri' => get_template_directory_uri());
         wp_localize_script($script, 'params', $params);
