@@ -2,6 +2,9 @@
 
     <div class="pages">
 
+        <hr class="dark">
+        <a class="sidebar-button" href="index.php">News</a>
+
         <?php
             $pages = get_pages();
             foreach($pages as $page) {

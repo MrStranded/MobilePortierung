@@ -73,8 +73,6 @@ echo '<div class="row-nomargin">';
 
                 $content .= '<div class="row-team">';
 
-                    $content .= '<h1>Team</h1>';
-
                     while (have_rows('mitarbeiter')) {
                         the_row();
 
@@ -121,9 +119,7 @@ echo '<div class="row-nomargin">';
     if ($images) {
         echo '<div class="col-image">';
         foreach ($images as $image) :
-            echo '<a href="' . $image['url'] . '">';
             echo '<img border="0" style="max-width: 100%;" src="' . wp_get_attachment_image_url($image['ID'], 'large') . '" />';
-            echo '</a>';
         endforeach;
         echo '</div>';
     };
