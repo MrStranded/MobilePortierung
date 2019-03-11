@@ -3,22 +3,24 @@
 echo '<div class="row-nomargin">';
     echo '<div class="col">';
 
+        // it is necessary to build the content string in this way because we use shortcodes that we have to run through
+        // the do_shortcode($content) command to parse them
         $content = '';
 
         $content .= '<div class="row-hr"><hr class="dark"></div>';
         $content .= '<h1>' . get_the_title() . '</h1>';
 
-        $content .= '[su_accordion]';
+        $content .= '[su_accordion class="spoiler-content"]';
 
         while (have_rows('inhalt')) {
             the_row();
 
             if (get_row_layout() == 'beschreibung') {
 
+                // if there is no content in the description, then we do not draw a horizontal line. that's why we need this boolean
                 $hadPreviousContent = false;
 
                 $content .= '<div class="row-hr"><hr class="dark"></div>';
-                //$content .= '[su_spoiler title="' . get_the_title() . '" open="yes"]';
 
                 $content .= '<div class="row-content">';
 
@@ -64,12 +66,10 @@ echo '<div class="row-nomargin">';
 
                 $content .= '</div>'; // / row-content
 
-                //$content .= '[/su_spoiler]';
-
             } elseif (get_row_layout() == 'team') {
 
                 $content .= '<div class="row-hr"><hr class="dark"></div>';
-                $content .= '[su_spoiler title="' . 'Team' . '" open="no"]';
+                $content .= '[su_spoiler class="spoiler" title="' . 'Team' . '" open="no" icon="chevron"]';
 
                 $content .= '<div class="row-team">';
 
@@ -102,6 +102,36 @@ echo '<div class="row-nomargin">';
                     };
 
                 $content .= '</div>'; // /row-team
+
+                $content .= '[/su_spoiler]';
+
+            } elseif (get_row_layout() == 'links') {
+
+                $content .= '<div class="row-hr"><hr class="dark"></div>';
+                $content .= '[su_spoiler class="spoiler" title="' . 'Links' . '" open="no" icon="chevron"]';
+
+                $content .= '<div class="row">';
+
+                while (have_rows('link')) {
+                    the_row();
+
+                    $content .= '<div class="row-link">';
+
+                    if (get_sub_field('name')) {
+                        $content .= '<p>' . get_sub_field('name') . '</p>';
+                    };
+                    if (get_sub_field('beschreibung')) {
+                        $content .= '<p>' . get_sub_field('beschreibung') . '</p>';
+                    };
+                    if (get_sub_field('url')) {
+                        $content .= '<a href="' . get_sub_field('url') . '">' . get_sub_field('url') . '</a>';
+                    };
+
+                    $content .= '</div>'; // /row-link
+
+                };
+
+                $content .= '</div>'; // /row
 
                 $content .= '[/su_spoiler]';
 

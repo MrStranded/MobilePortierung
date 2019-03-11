@@ -101,7 +101,7 @@ a:hover {
 
 }
 .row-team {
-
+    color: #000000;
 }
 .row-member {
     display: flex;
@@ -138,12 +138,13 @@ hr.light {
 
 /* ---------------------------------------- accordion short code */
 
-.su-spoiler-content {
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
+.spoiler-content {
+    padding-top: 0;
+    padding-bottom: 0;
 }
-.su-spoiler {
-    margin-bottom: 0 !important;
+.spoiler {
+    margin-bottom: 0;
+    color: #8f98a1;
 }
 
 /* ---------------------------------------- blog */
