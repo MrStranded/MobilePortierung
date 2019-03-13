@@ -15,4 +15,4 @@ Date | Begun | Stopped | Goal | Result
 26.02.19 | 16:00 | 18:00 | Implement some of the insights from the discussion | Successful conversion from php based desktop/mobile distinction to css
 04.03.19 | 12:30 | 14:00 | Discuss tasks for Confluence enhancements | Understood what I have to do
 11.03.19 | 16:30 | 18:00 | Implement rest of material from discussion | Many smaller changes like the flexibly moving topbar
-13.03.19 | 14:50 | x | Finish link section | x
+13.03.19 | 15:00 | 17:00 | Finish link section | Implemented most things from the discussion
