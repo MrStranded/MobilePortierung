@@ -8,8 +8,8 @@ echo '<div class="row-nomargin">';
         $content = '';
 
         $content .= '<div class="row-hr"><hr class="dark"></div>';
-        $content .= '<h1>' . get_the_title() . '</h1>';
 
+        $content .= '<h1>' . get_the_title() . '</h1>';
         $content .= '[su_accordion class="spoiler-content"]';
 
         while (have_rows('inhalt')) {
@@ -22,7 +22,7 @@ echo '<div class="row-nomargin">';
 
                 $content .= '<div class="row-hr"><hr class="dark"></div>';
 
-                $content .= '<div class="row-content">';
+                $content .= '<div class="row-sub-section">';
 
                     $content .= '<div class="info">';
 
@@ -64,14 +64,14 @@ echo '<div class="row-nomargin">';
                         $content .= '<p>' . nl2br(get_sub_field('text')) . '</p>';
                     };
 
-                $content .= '</div>'; // / row-content
+                $content .= '</div>'; // / row-sub-section
 
             } elseif (get_row_layout() == 'team') {
 
                 $content .= '<div class="row-hr"><hr class="dark"></div>';
-                $content .= '[su_spoiler class="spoiler" title="' . 'Team' . '" open="no" icon="chevron"]';
 
-                $content .= '<div class="row-team">';
+                $content .= '[su_spoiler class="spoiler" title="' . 'Team' . '" open="no" icon="chevron"]';
+                $content .= '<div class="row-sub-section">';
 
                     while (have_rows('mitarbeiter')) {
                         the_row();
@@ -93,7 +93,7 @@ echo '<div class="row-nomargin">';
                                         $content .= '<p>' . get_sub_field('position') . '</p>';
                                 };
                                 if (get_sub_field('email')) {
-                                    $content .= '<a href="mailto: ' . get_sub_field('email') . '">' . get_sub_field('email') . '</a>';
+                                    $content .= '<a class="info-link" href="mailto: ' . get_sub_field('email') . '">' . get_sub_field('email') . '</a>';
                                 };
                             $content .= '</div>';
 
@@ -101,38 +101,60 @@ echo '<div class="row-nomargin">';
 
                     };
 
-                $content .= '</div>'; // /row-team
-
+                $content .= '</div>'; // /row-sub-section
                 $content .= '[/su_spoiler]';
 
             } elseif (get_row_layout() == 'links') {
 
                 $content .= '<div class="row-hr"><hr class="dark"></div>';
-                $content .= '[su_spoiler class="spoiler" title="' . 'Links' . '" open="no" icon="chevron"]';
 
-                $content .= '<div class="row">';
+                $content .= '[su_spoiler class="spoiler" title="' . 'Links' . '" open="no" icon="chevron"]';
+                $content .= '<div class="row-sub-section">';
 
                 while (have_rows('link')) {
                     the_row();
 
-                    $content .= '<div class="row-link">';
+                    $content .= '<div class="row-sub-section">';
 
-                    if (get_sub_field('name')) {
-                        $content .= '<p>' . get_sub_field('name') . '</p>';
-                    };
                     if (get_sub_field('beschreibung')) {
-                        $content .= '<p>' . get_sub_field('beschreibung') . '</p>';
+                        $content .= '<p>' . nl2br(get_sub_field('beschreibung')) . '</p>';
                     };
-                    if (get_sub_field('url')) {
-                        $content .= '<a href="' . get_sub_field('url') . '">' . get_sub_field('url') . '</a>';
-                    };
+                    $content .= '<a class="info-link" href="' . get_sub_field('url') . '">' . get_sub_field('name') . '</a>';
 
                     $content .= '</div>'; // /row-link
 
                 };
 
-                $content .= '</div>'; // /row
+                $content .= '</div>'; // /row-sub-section
+                $content .= '[/su_spoiler]';
 
+            } elseif (get_row_layout() == 'kategorie') {
+
+                $content .= '<div class="row-hr"><hr class="dark"></div>';
+
+                $content .= '[su_spoiler class="spoiler" title="' . get_sub_field('titel') . '" open="no" icon="chevron"]';
+                $content .= '<div class="row-sub-section">';
+                //$content .= '[_su_accordion class="spoiler-content"]';
+
+                while (have_rows('unterkategorie')) {
+                    the_row();
+
+                    $content .= '<div class="row-hr"><hr class="light"></div>';
+
+                    $content .= '[_su_spoiler class="spoiler" title="' . get_sub_field('ueberschrift') . '" open="no" icon="caret"]';
+                    $content .= '<div class="row-sub-section">';
+
+                    if (get_sub_field('text')) {
+                        $content .= '<p>' . nl2br(get_sub_field('text')) . '</p>';
+                    };
+
+                    $content .= '</div>'; // /row-sub-section
+                    $content .= '[_/su_spoiler]';
+
+                };
+
+                //$content .= '[_/su_accordion]';
+                $content .= '</div>'; // /row-sub-section
                 $content .= '[/su_spoiler]';
 
             };

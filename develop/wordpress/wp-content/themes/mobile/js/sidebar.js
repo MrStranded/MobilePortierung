@@ -13,15 +13,3 @@ function closeSidePanel() {
     document.getElementById("slide-menu-button-close").style.display = "none";
     document.getElementById("sidebar-id").style.visibility = "hidden";
 }
-
-let prevScrollpos = window.pageYOffset;
-
-window.onscroll = function() {
-    let currentScrollPos = window.pageYOffset;
-    if (prevScrollpos > currentScrollPos) {
-        document.getElementById("menu-container-id").style.top = "0";
-    } else {
-        document.getElementById("menu-container-id").style.top = "-50px";
-    }
-    prevScrollpos = currentScrollPos;
-}
