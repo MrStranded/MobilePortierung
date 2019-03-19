@@ -7,9 +7,6 @@ echo '<div class="row-nomargin">';
         // the do_shortcode($content) command to parse them
         $content = '';
 
-        $content .= '<div class="row-hr"><hr class="dark"></div>';
-
-        $content .= '<h1>' . get_the_title() . '</h1>';
         $content .= '[su_accordion class="spoiler-content"]';
 
         while (have_rows('inhalt')) {
@@ -26,6 +23,18 @@ echo '<div class="row-nomargin">';
 
                     $content .= '<div class="info">';
 
+                        $content .= '<div class="row-title">';
+                            $content .= '<h1>' . get_the_title() . '</h1>';
+                        $content .= '</div>';
+
+                        if (get_sub_field('strasse') || get_sub_field('ort') || get_sub_field('telefon') || get_sub_field('fax') || get_sub_field('email')) {
+                            $content .= '<div class="info-block-first">';
+                        };
+
+                        if (get_sub_field('strasse') || get_sub_field('ort')) {
+                            $content .= '<hr class="light">';
+                            $content .= '<div class="info-block">';
+                        };
                         if (get_sub_field('strasse') && get_sub_field('ort')) {
                             $hadPreviousContent = true;
 
@@ -47,21 +56,35 @@ echo '<div class="row-nomargin">';
                                 $content .= '<p class="info-text">' . get_sub_field('ort') . '</p>';
                             };
                         };
+                        if (get_sub_field('strasse') || get_sub_field('ort')) {
+                            $content .= '</div>';
+                        };
 
                         if (get_sub_field('telefon') || get_sub_field('fax') || get_sub_field('email')) {
                             $hadPreviousContent = true;
                             $content .= '<hr class="light">';
+                            $content .= '<div class="info-block">';
                         };
                         if (get_sub_field('telefon')) { $content .= '<a class="info-link" href="tel:+41' . get_sub_field('telefon') . '"><p>Tel.: ' . get_sub_field('telefon') . '</p></a>'; };
                         if (get_sub_field('fax')) { $content .= '<p class="info-text">Fax: ' . get_sub_field('fax') . '</p>'; };
                         if (get_sub_field('email')) { $content .= '<a class="info-link" href="mailto: ' . get_sub_field('email') . '"><p>' . get_sub_field('email') . '</p></a>'; };
+                        if (get_sub_field('telefon') || get_sub_field('fax') || get_sub_field('email')) {
+                            $content .= '</div>';
+                        };
+
+                        if (get_sub_field('strasse') || get_sub_field('ort') || get_sub_field('telefon') || get_sub_field('fax') || get_sub_field('email')) {
+                            $content .= '</div>';
+                        };
+
                     $content .= '</div>'; // info
 
                     if (get_sub_field('text')) {
-                        if ($hadPreviousContent) {
+                        //if ($hadPreviousContent) {
                             $content .= '<hr class="dark">';
-                        };
-                        $content .= '<p>' . nl2br(get_sub_field('text')) . '</p>';
+                        //};
+                        $content .= '<div class="info-block">';
+                            $content .= '<p>' . nl2br(get_sub_field('text')) . '</p>';
+                        $content .= '</div>'; // / info-block
                     };
 
                 $content .= '</div>'; // / row-sub-section

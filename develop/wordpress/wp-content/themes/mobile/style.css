@@ -71,13 +71,20 @@ a:hover {
     text-decoration: none;
 }
 
+body {
+    font-size: 1.1em;
+    line-height: 1.3em;
+}
+
 /* ---------------------------------------- main container for content */
 
 .container {
-    width: 80%;
+    width: calc(100% - 20px);
+    max-width: 1280px;
     padding-left: 10px;
+    padding-right: 10px;
     padding-top: 10px;
-    margin: 0 auto;
+    margin: 0 10px 0 10px;
 }
 
 .page-container {
@@ -103,6 +110,15 @@ a:hover {
 .row-sub-section {
     color: #000000;
     text-transform: none;
+    letter-spacing: 0em;
+    padding-bottom: 3em;
+}
+.row-title {
+    color: #000000;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding-top: 5px;
+    padding-bottom: 7px;
 }
 .row-member {
     display: flex;
@@ -116,26 +132,32 @@ a:hover {
 .col {
     flex: 50%;
     margin: 0;
+    margin-left: 20px;
     padding: 0;
-    max-width: 600px;
+    max-width: calc(50% - 20px);
 }
 .col-image {
     flex: 50%;
     margin: 0;
+    margin-left: 20px;
     padding: 0;
 }
 
 /* ---------------------------------------- horizontal lines */
 
 hr.dark {
-    border-top: 2px solid #363b3f;
+    border-top: 2px solid #000000;
+    opacity: 0.8;
     margin: 0;
     padding: 0;
+    z-index: 0;
 }
 hr.light {
     border-top: 2px solid #8f98a1;
+    opacity: 0.8;
     margin: 0;
     padding: 0;
+    z-index: 0;
 }
 
 /* ---------------------------------------- accordion short code */
@@ -148,6 +170,7 @@ hr.light {
     margin-bottom: 0;
     color: #8f98a1;
     text-transform: uppercase;
+    letter-spacing: 0.1em;
 }
 
 /* ---------------------------------------- blog */
@@ -178,15 +201,18 @@ hr.light {
     width: 25%;
 }
 .menu-button {
-    flex: 25%;
+    flex: 15%;
     display: none;
+}
+#slide-menu-title {
+    padding-top: 15px;
+    width: 230px;
 }
 
 /* ---------------------------------------- sidebar */
 
 .sidebar {
     flex: 25%;
-    margin-right: 20px;
 }
 
 .sidebar-button {
@@ -196,6 +222,7 @@ hr.light {
     padding-bottom: 7px;
     color: #8f98a1;
     text-transform: uppercase;
+    letter-spacing: 0.1em;
 }
 .sidebar-button:hover {
     color: red;
@@ -206,6 +233,14 @@ hr.light {
 
 .info {
     width: 60%;
+    padding-bottom: 3em;
+}
+.info-block {
+    padding-top: 5px;
+    padding-bottom: 7px;
+}
+.info-block-first {
+    padding-top: 2em;
 }
 .info-text {
     color: #8f98a1;
@@ -224,7 +259,7 @@ hr.light {
 
 /* ---------------------------------------- settings for mobile version fo website */
 
-@media screen and (max-width: 680px) {
+@media screen and (max-width: 780px) {
 
     /* ---------------------------------------- encompassing environment for all content of page */
 
@@ -238,10 +273,15 @@ hr.light {
         width: 100%;
         padding-left: 0;
         padding-right: 0;
-        margin: 0 auto;
+        margin: 0;
+        max-width: calc(100% - 20px);
     }
 
     /* ---------------------------------------- columns of thematic content */
+
+    .col {
+        max-width: calc(100% - 20px);
+    }
 
     .col-image {
         display: none;
@@ -249,25 +289,33 @@ hr.light {
 
     /* ---------------------------------------- top bar */
 
+    .menu-container {
+        z-index: 1;
+    }
     .menu-banner {
         width: initial;
-        flex: 75%;
+        flex: 85%;
     }
     .menu-button {
         display: block;
+        flex: 15%;
+    }
+    #slide-menu-title {
+        padding-left: 18px;
     }
 
     /* ---------------------------------------- sidebar */
 
     .sidebar {
         flex: 100%;
-        width: 100%;
+        width: calc(100% - 20px);
         margin-right: 0;
         min-height: 100%;
+        max-width: 100%;
 
         position: absolute;
         top: 80px;
-        z-index: 1;
+        z-index: 2047;
 
         background-color: #ffffff;
 
@@ -278,10 +326,16 @@ hr.light {
 
 /* ---------------------------------------- letting the pictures of houses disappear when screen is to small */
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1200px) and (min-width: 780px) {
 
     .col-image {
         display: none;
+    }
+    .col {
+        min-width: 420px;
+    }
+    .sidebar {
+        min-width: 290px;
     }
 
 }
