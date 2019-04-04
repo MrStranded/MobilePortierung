@@ -17,9 +17,9 @@ function initialize() {
  * If we want to use a javascript file in the Mobile theme, we have to load it here.
  */
 function loadJavaScriptFiles() {
-    loadScript('sidebar');
-    loadScript('topbar');
-    loadScript('shortcode');
+    loadScriptFile('shortcode');
+    loadScriptFile('sidebar');
+    loadScriptFile('topbar');
 }
 
 /**
@@ -27,8 +27,8 @@ function loadJavaScriptFiles() {
  * in the javascript files for us to use there.
  * @param $script File name of the javascript file in the /js folder
  */
-function loadScript($script) {
-    wp_enqueue_script($script, get_template_directory_uri() . '/js/' . $script . '.js');
+function loadScriptFile($script) {
+    wp_enqueue_script("mobile_theme_" . $script, get_template_directory_uri() . '/js/' . $script . '.js');
     $params = array('template_uri' => get_template_directory_uri());
     wp_localize_script($script, 'params', $params);
     wp_enqueue_script($script);
@@ -39,33 +39,25 @@ function loadScript($script) {
 // ---------------------------------------------------------------------------------------------------------------------
 
 function initializeShortCode() {
-    add_shortcode('helloworld', 'testShortCode');
     add_shortcode('customAccordeon', 'customAccordeon');
-}
-
-function testShortCode($atts) {
-    $attributes = shortcode_atts(
-        array('name' => 'world'),
-        $atts
-    );
-    return 'Hello ' . $attributes['name'];
 }
 
 function customAccordeon($atts, $content = "") {
     $attributes = shortcode_atts(
         array(
             'id' => 'shortCodeNoID',
-            'text' => 'Accordeon'
+            'text' => 'Accordeon',
+            'classtopbar' => 'mobile-shortcodes-default-topbar',
+            'classcontent' => 'mobile-shortcodes-default-content'
         ),
         $atts
     );
 
     $output = "";
     $output .= '<div>';
-    $output .= '<div class="csct" onclick="changeDivVisibility(\'' . $attributes['id'] . '\');">';
-    //$output .= '<div class="csct" onclick="alert(\'test\')");">';
+    $output .= '<div class="' . $attributes['classtopbar'] . '" onclick="changeDivVisibility(\'' . $attributes['id'] . '\');">';
     $output .= $attributes['text'] . '</div>';
-    $output .= '<div class="cscc" id="' . $attributes['id'] . '">' . $content . '</div>';
+    $output .= '<div class="' . $attributes['classcontent'] . '" id="' . $attributes['id'] . '">' . $content . '</div>';
     $output .= '</div>';
     return $output;
 }

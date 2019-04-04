@@ -262,12 +262,12 @@ hr.light {
 
 
 
-/* ---------------------------------------- sub category section */
+/* ---------------------------------------- default styles of mobile short code elements */
 
-.cscc {
+.mobile-shortcodes-default-content {
     background-color: #0d84e3;
 }
-.csct {
+.mobile-shortcodes-default-topbar {
     background-color: #4ab866;
 }
 
