@@ -1,7 +1,7 @@
 let prevScrollpos = window.pageYOffset;
 
 window.onscroll = function() {
-    let currentScrollPos = window.pageYOffset;
+    /*let currentScrollPos = window.pageYOffset;
     if (Math.abs(prevScrollpos - currentScrollPos) > 50) {
         if (prevScrollpos > currentScrollPos) {
             document.getElementById("menu-container-id").style.top = "0";
@@ -9,5 +9,5 @@ window.onscroll = function() {
             document.getElementById("menu-container-id").style.top = "-80px";
         }
         prevScrollpos = currentScrollPos;
-    }
+    }*/
 }

@@ -125,6 +125,7 @@ body {
 }
 .row-hr {
     width: inherit;
+    z-index: 0;
 }
 
 /* ---------------------------------------- columns of thematic content */
@@ -190,12 +191,13 @@ hr.light {
     margin: 0px;
 
     height: 80px;
+    top: 0;
+    z-index: 10;
 
     position: fixed;
-    top: 0;
     transition: top 0.5s;
 
-    background-color: #ffffff;
+    background-color: #fafafa; /*#ffffff;*/
 }
 .menu-banner {
     width: 25%;
@@ -223,6 +225,9 @@ hr.light {
     color: #8f98a1;
     text-transform: uppercase;
     letter-spacing: 0.1em;
+}
+.sidebar-button-current {
+    color: #000000;
 }
 .sidebar-button:hover {
     color: red;
@@ -290,7 +295,6 @@ hr.light {
     /* ---------------------------------------- top bar */
 
     .menu-container {
-        z-index: 1;
     }
     .menu-banner {
         width: initial;

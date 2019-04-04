@@ -19,17 +19,7 @@
     <![endif]-->
 
     <?php
-        $script = 'sidebar';
-        wp_enqueue_script($script, get_template_directory_uri() . '/js/' . $script . '.js');
-        $params = array('template_uri' => get_template_directory_uri());
-        wp_localize_script($script, 'params', $params);
-        wp_enqueue_script($script);
-
-        $script = 'topbar';
-        wp_enqueue_script($script, get_template_directory_uri() . '/js/' . $script . '.js');
-        $params = array('template_uri' => get_template_directory_uri());
-        wp_localize_script($script, 'params', $params);
-        wp_enqueue_script($script);
+        loadJavaScriptFiles();
     ?>
 
 	<?php wp_head();?>
@@ -37,21 +27,21 @@
 
 <body>
 
-	    <div class="container">
+    <div class="container">
 
-            <div id="menu-container-id" class="menu-container">
-                <div class="menu-banner">
-                    <a href="<?php echo get_bloginfo( 'wpurl' );?>">
-                        <img id="slide-menu-title" name="top" src="<?php echo get_template_directory_uri(); ?>/images/mobile_basel_logo.svg" alt="Mobile Basel" />
-                    </a>
-                </div>
-                <div class="menu-button" id="slide-menu-button">
-                    <img id="slide-menu-button-open" onclick="openSidePanel()" style="width: 100%;" src="<?php echo get_template_directory_uri(); ?>/images/baseline_menu_black_48dp_2x.png" alt="Open Menu" />
-                    <img id="slide-menu-button-close" onclick="closeSidePanel()" style="width: 100%; display: none;" src="<?php echo get_template_directory_uri(); ?>/images/baseline_close_black_48dp_2x.png" alt="Close Menu" />
-                </div>
+        <div id="menu-container-id" class="menu-container">
+            <div class="menu-banner">
+                <a href="<?php echo get_bloginfo( 'wpurl' );?>">
+                    <img id="slide-menu-title" name="top" src="<?php echo get_template_directory_uri(); ?>/images/mobile_basel_logo.svg" alt="Mobile Basel" />
+                </a>
             </div>
+            <div class="menu-button" id="slide-menu-button">
+                <img id="slide-menu-button-open" onclick="openSidePanel()" style="width: 100%;" src="<?php echo get_template_directory_uri(); ?>/images/baseline_menu_black_48dp_2x.png" alt="Open Menu" />
+                <img id="slide-menu-button-close" onclick="closeSidePanel()" style="width: 100%; display: none;" src="<?php echo get_template_directory_uri(); ?>/images/baseline_close_black_48dp_2x.png" alt="Close Menu" />
+            </div>
+        </div>
 
-            <div class="page-container">
-                <!-- <p class="home-description"><?php echo get_bloginfo( 'description' ); ?></p> -->
+        <div class="page-container">
+            <!-- <p class="home-description"><?php echo get_bloginfo( 'description' ); ?></p> -->
 
 

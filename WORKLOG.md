@@ -17,3 +17,4 @@ Date | Begun | Stopped | Goal | Result
 11.03.19 | 16:30 | 18:00 | Implement rest of material from discussion | Many smaller changes like the flexibly moving topbar
 13.03.19 | 15:00 | 17:00 | Finish link section | Implemented most things from the discussion
 19.03.19 | 13:00 | 16:15 | Design session with Michael | Lots of css and outlooks for further work
+04.04.19 | 13:15 | x | Implement material from discussion | x
