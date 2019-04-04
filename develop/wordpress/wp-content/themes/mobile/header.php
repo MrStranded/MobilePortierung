@@ -19,7 +19,9 @@
     <![endif]-->
 
     <?php
-        loadJavaScriptFiles();
+        // this function sits in the theme's functions.php
+        // it loads the javascript files and activates the custom shortcodes
+        initialize();
     ?>
 
 	<?php wp_head();?>

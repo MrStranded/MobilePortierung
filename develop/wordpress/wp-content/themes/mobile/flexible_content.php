@@ -7,6 +7,8 @@ echo '<div class="row-nomargin">';
         // the do_shortcode($content) command to parse them
         $content = '';
 
+        $content .= '[customAccordeon id="unique" text="testText blabla"] content etc <br> bliblablub [/customAccordeon]';
+
         $content .= '[su_accordion class="spoiler-content"]';
 
         while (have_rows('inhalt')) {

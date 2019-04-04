@@ -262,6 +262,15 @@ hr.light {
 
 
 
+/* ---------------------------------------- sub category section */
+
+.cscc {
+    background-color: #0d84e3;
+}
+.csct {
+    background-color: #4ab866;
+}
+
 /* ---------------------------------------- settings for mobile version fo website */
 
 @media screen and (max-width: 780px) {
