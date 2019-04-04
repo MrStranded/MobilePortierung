@@ -4,7 +4,7 @@
 
         <?php get_sidebar(); ?>
 
-        <div class="content">
+        <div id="content-id" class="content">
             <?php include("flexible_content.php"); ?>
         </div>
 

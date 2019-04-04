@@ -174,13 +174,28 @@ hr.light {
     letter-spacing: 0.1em;
 }
 
-/* ---------------------------------------- blog */
+/* ---------------------------------------- news */
 
-.blog-post {
+.news-post {
     width: inherit;
+    display: flex;
 }
-.blog-footer {
-    width: 100%;
+.row-news-post-info {
+    flex: 40%;
+}
+.row-news-post-separator {
+    flex: 5%;
+}
+.row-news-post-content {
+    flex: 55%;
+}
+
+.news-post-title {
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+.news-post-text {
+
 }
 
 /* ---------------------------------------- top bar */
@@ -192,7 +207,7 @@ hr.light {
 
     height: 80px;
     top: 0;
-    z-index: 10;
+    z-index: 100;
 
     position: fixed;
     transition: top 0.5s;
@@ -264,11 +279,9 @@ hr.light {
 
 /* ---------------------------------------- default styles of mobile short code elements */
 
-.mobile-shortcodes-default-content {
-    background-color: #0d84e3;
-}
-.mobile-shortcodes-default-topbar {
+.mobile-shortcodes-default {
     background-color: #4ab866;
+    cursor: pointer;
 }
 
 /* ---------------------------------------- settings for mobile version fo website */
@@ -323,12 +336,11 @@ hr.light {
         flex: 100%;
         width: calc(100% - 20px);
         margin-right: 0;
-        min-height: 100%;
         max-width: 100%;
 
         position: absolute;
         top: 80px;
-        z-index: 2047;
+        z-index: 10;
 
         background-color: #ffffff;
 

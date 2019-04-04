@@ -4,11 +4,16 @@
 
         <?php get_sidebar(); ?>
 
-        <div class="content">
+        <div id="content-id" class="content">
             <div class="col">
-                <?php if ( have_posts() ) : while ( have_posts() ) : the_post();
-                    get_template_part( 'content', get_post_format() );
-                endwhile; endif; ?>
+                <?php
+                    if (have_posts()) {
+                        while (have_posts()) {
+                            the_post();
+                            get_template_part('content', get_post_format());
+                        }
+                    }
+                ?>
             </div>
         </div>
 

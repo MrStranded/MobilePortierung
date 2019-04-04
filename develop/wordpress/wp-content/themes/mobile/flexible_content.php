@@ -7,7 +7,7 @@ echo '<div class="row-nomargin">';
         // the do_shortcode($content) command to parse them
         $content = '';
 
-        $content .= '[customAccordeon classtopbar="spoiler" classcontent="spoiler-content" id="unique" text="testText blabla"]wtf content etc <br> bliblablub [/customAccordeon]';
+        $content .= '[customAccordeon id="unique" text="testText blabla"]wtf content etc <br> bliblablub [/customAccordeon]';
 
         $content .= '[su_accordion class="spoiler-content"]';
 
@@ -67,7 +67,13 @@ echo '<div class="row-nomargin">';
                             $content .= '<hr class="light">';
                             $content .= '<div class="info-block">';
                         };
-                        if (get_sub_field('telefon')) { $content .= '<a class="info-link" href="tel:+41' . get_sub_field('telefon') . '"><p>Tel.: ' . get_sub_field('telefon') . '</p></a>'; };
+                        if (get_sub_field('telefon')) {
+                            $telnr = get_sub_field('telefon');
+                            if (mb_substr($telnr, 0, 1) == '0') {
+                                $telnr = '+41' . mb_substr($telnr, 1);
+                            }
+                            $content .= '<a class="info-link" href="tel:' . $telnr . '"><p>Tel.: ' . get_sub_field('telefon') . '</p></a>';
+                        };
                         if (get_sub_field('fax')) { $content .= '<p class="info-text">Fax: ' . get_sub_field('fax') . '</p>'; };
                         if (get_sub_field('email')) { $content .= '<a class="info-link" href="mailto: ' . get_sub_field('email') . '"><p>' . get_sub_field('email') . '</p></a>'; };
                         if (get_sub_field('telefon') || get_sub_field('fax') || get_sub_field('email')) {

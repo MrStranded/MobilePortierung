@@ -47,17 +47,16 @@ function customAccordeon($atts, $content = "") {
         array(
             'id' => 'shortCodeNoID',
             'text' => 'Accordeon',
-            'classtopbar' => 'mobile-shortcodes-default-topbar',
-            'classcontent' => 'mobile-shortcodes-default-content'
+            'class' => 'mobile-shortcodes-default',
         ),
         $atts
     );
 
     $output = "";
     $output .= '<div>';
-    $output .= '<div class="' . $attributes['classtopbar'] . '" onclick="changeDivVisibility(\'' . $attributes['id'] . '\');">';
-    $output .= $attributes['text'] . '</div>';
-    $output .= '<div class="' . $attributes['classcontent'] . '" id="' . $attributes['id'] . '">' . $content . '</div>';
+    $output .= '<div class="' . $attributes['class'] . '" onclick="changeDivVisibility(\'' . $attributes['id'] . '\');">';
+    $output .= json_decode('"\uf8ff"') . ' ' . $attributes['text'] . '</div>';
+    $output .= '<div id="' . $attributes['id'] . '">' . $content . '</div>';
     $output .= '</div>';
     return $output;
 }
