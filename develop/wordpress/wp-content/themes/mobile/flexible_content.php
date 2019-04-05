@@ -7,8 +7,6 @@ echo '<div class="row-nomargin">';
         // the do_shortcode($content) command to parse them
         $content = '';
 
-        $content .= '[customAccordeon id="unique" text="testText blabla"]wtf content etc <br> bliblablub [/customAccordeon]';
-
         $content .= '[su_accordion class="spoiler-content"]';
 
         while (have_rows('inhalt')) {
@@ -163,7 +161,8 @@ echo '<div class="row-nomargin">';
 
                 $content .= '<div class="row-hr"><hr class="dark"></div>';
 
-                $content .= '[su_spoiler class="spoiler" title="' . get_sub_field('titel') . '" open="no" icon="chevron"]';
+                //$content .= '[su_spoiler class="spoiler" title="' . get_sub_field('titel') . '" open="no" icon="chevron"]';
+                $content .= '[customAccordeon title="' . get_sub_field('titel') . '"]';
                 $content .= '<div class="row-sub-section">';
                 //$content .= '[_su_accordion class="spoiler-content"]';
 
@@ -172,7 +171,8 @@ echo '<div class="row-nomargin">';
 
                     $content .= '<div class="row-hr"><hr class="light"></div>';
 
-                    $content .= '[_su_spoiler class="spoiler" title="' . get_sub_field('ueberschrift') . '" open="no" icon="caret"]';
+                    $content .= '[customSubAccordeon title="' . get_sub_field('ueberschrift') . '"]';
+                    //$content .= '[_su_spoiler class="spoiler" title="' . get_sub_field('ueberschrift') . '" open="no" icon="caret"]';
                     $content .= '<div class="row-sub-section">';
 
                     if (get_sub_field('text')) {
@@ -180,13 +180,15 @@ echo '<div class="row-nomargin">';
                     };
 
                     $content .= '</div>'; // /row-sub-section
-                    $content .= '[_/su_spoiler]';
+                    //$content .= '[_/su_spoiler]';
+                    $content .= '[/customSubAccordeon]';
 
                 };
 
                 //$content .= '[_/su_accordion]';
                 $content .= '</div>'; // /row-sub-section
-                $content .= '[/su_spoiler]';
+                //$content .= '[/su_spoiler]';
+                $content .= '[/customAccordeon]';
 
             };
 

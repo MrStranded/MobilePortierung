@@ -38,25 +38,50 @@ function loadScriptFile($script) {
 // |                                           Custom Mobile Short Codes                                               |
 // ---------------------------------------------------------------------------------------------------------------------
 
+$custom_shortcode_counter = 0;
+
 function initializeShortCode() {
     add_shortcode('customAccordeon', 'customAccordeon');
+    add_shortcode('customSubAccordeon', 'customSubAccordeon');
 }
 
 function customAccordeon($atts, $content = "") {
+    return customAccordeonBase($atts, $content, 0);
+}
+function customSubAccordeon($atts, $content = "") {
+    return customAccordeonBase($atts, $content, 1);
+}
+
+function customAccordeonBase($atts, $content, $level) {
+    // defining default attributes
     $attributes = shortcode_atts(
         array(
-            'id' => 'shortCodeNoID',
-            'text' => 'Accordeon',
-            'class' => 'mobile-shortcodes-default',
+            'id' => 'shortCode_' . $GLOBALS['custom_shortcode_counter'],
+            'title' => 'Accordeon',
         ),
         $atts
     );
 
+    // increase id counter so ids stay unique
+    $GLOBALS['custom_shortcode_counter'] = $GLOBALS['custom_shortcode_counter'] + 1;
+
+    // specific level-dependant parameters
+    $prefix = "";
+    if ($level == 1) { $prefix = json_decode('"\uf8ff"'); }
+
+    $titleClass = "mobile-shortcodes-title";
+    if ($level == 1) { $titleClass .= " mobile-shortcodes-title-hidden mobile-shortcodes-title-sub"; }
+
+    $divDisplay = "";
+    if ($level == 1) { $divDisplay = "none"; }
+
+    // building the output html code
     $output = "";
     $output .= '<div>';
-    $output .= '<div class="' . $attributes['class'] . '" onclick="changeDivVisibility(\'' . $attributes['id'] . '\');">';
-    $output .= json_decode('"\uf8ff"') . ' ' . $attributes['text'] . '</div>';
-    $output .= '<div id="' . $attributes['id'] . '">' . $content . '</div>';
+        $output .= '<div class="mobile-shortcodes-default" onclick="changeDivVisibility(\'' . $attributes['id'] . '\');">';
+            $output .= '<p class="' . $titleClass . '" id="' . $attributes['id'] . '_title' . '">' . $prefix . ' ' . $attributes['title'] . '</p>';
+        $output .='</div>';
+        $output .= '<div id="' . $attributes['id'] . '" style="display: ' . $divDisplay . ';">' . do_shortcode($content) . '</div>';
     $output .= '</div>';
     return $output;
 }

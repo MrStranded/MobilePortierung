@@ -5,23 +5,33 @@
         <?php
             $currentPage = get_the_ID();
 
-            $pages = get_pages();
-            foreach($pages as $page) {
-                $buttonClass = "sidebar-button";
-                if ($page->ID == $currentPage) {
-                    $buttonClass .= " sidebar-button-current";
+            $menus = ["Abteilungen", "Anderes"];
+            $first = true;
+
+            foreach($menus as $menu) {
+
+                if ($first == true) {
+                    $first = false;
+                } else {
+                    echo '<hr class="dark" >';
+                    echo '<p class="sidebar-button" >&nbsp;</p >';
                 }
 
-                echo '<hr class="dark">';
-                echo '<a class="' . $buttonClass . '" href="' . get_page_link($page->ID) . '">' . $page->post_title . '</a>';
+                $items = wp_get_nav_menu_items($menu);
+                foreach ($items as $item) {
+                    //$page = get_post($item->object_id);
+
+                    $buttonClass = "sidebar-button";
+                    if ($item->object_id == $currentPage) {
+                        $buttonClass .= " sidebar-button-current";
+                    }
+
+                    echo '<hr class="dark">';
+                    echo '<a class="' . $buttonClass . '" href="' . $item->url . '">' . $item->title . '</a>';
+                }
+
             }
         ?>
-
-        <hr class="dark">
-        <p class="sidebar-button">&nbsp;</p>
-
-        <hr class="dark">
-        <a class="sidebar-button" href="index.php">News</a>
 
     </div>
 

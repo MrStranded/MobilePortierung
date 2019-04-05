@@ -19,3 +19,4 @@ Date | Begun | Stopped | Goal | Result
 19.03.19 | 13:00 | 16:15 | Design session with Michael | Lots of css and outlooks for further work
 04.04.19 | 13:15 | 16:00 | Implement material from discussion | Basics of custom short codes implemented
 04.04.19 | 18:15 | 19:30 | Continue with discussion implementation | Formatted news section to look more like old version
+05.04.19 | 16:30 | 18:30 | Setting up special pages | Special pages are processed correctly and improved custom short codes

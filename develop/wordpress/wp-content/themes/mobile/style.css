@@ -280,8 +280,19 @@ hr.light {
 /* ---------------------------------------- default styles of mobile short code elements */
 
 .mobile-shortcodes-default {
-    background-color: #4ab866;
+    padding-bottom: 3em;
     cursor: pointer;
+}
+.mobile-shortcodes-title {
+    margin-left: 0px;
+
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+.mobile-shortcodes-title-hidden {
+    color: #8f98a1;
+}
+.mobile-shortcodes-title-sub {
 }
 
 /* ---------------------------------------- settings for mobile version fo website */
