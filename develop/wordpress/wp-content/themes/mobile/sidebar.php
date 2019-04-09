@@ -13,7 +13,6 @@
                 if ($first == true) {
                     $first = false;
                 } else {
-                    echo '<hr class="light" >';
                     echo '<p class="sidebar-button" >&nbsp;</p >';
                 }
 
@@ -29,14 +28,12 @@
                     }
 
                     echo '<hr class="' . $hrClass . '">';
-                    echo '<a class="' . $buttonClass . '" href="' . $item->url . '">' . $item->title . '</a>';
+                    echo '<a class="link-button ' . $buttonClass . '" href="' . $item->url . '">' . $item->title . '</a>';
                 }
 
             }
         ?>
 
     </div>
-
-    <hr class="light">
 
 </div>

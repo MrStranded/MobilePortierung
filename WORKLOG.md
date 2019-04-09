@@ -21,3 +21,4 @@ Date | Begun | Stopped | Goal | Result
 04.04.19 | 18:15 | 19:30 | Continue with discussion implementation | Formatted news section to look more like old version
 05.04.19 | 16:30 | 18:30 | Setting up special pages | Special pages are processed correctly and improved custom short codes
 09.04.19 | 13:00 | 15:30 | Discussion with Michael for final improvements | Insight into remaining tasks
+09.04.19 | 18:30 | 19:30 | Improve overall style and shortcodes | Worked on team representation and overall css classes

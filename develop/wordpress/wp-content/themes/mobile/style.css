@@ -141,7 +141,18 @@ body {
     flex: 50%;
     margin: 0;
     margin-left: 20px;
+}
+.col-member {
+    flex: 50%;
+    margin-left: 0;
     padding: 0;
+    max-width: calc(50% - 20px);
+}
+.row-info {
+}
+.row-thumbnail img {
+    width: 150px;
+    height: 200px;
 }
 
 /* ---------------------------------------- horizontal lines */
@@ -159,6 +170,56 @@ hr.light {
     margin: 0;
     padding: 0;
     z-index: 0;
+}
+
+/* ---------------------------------------- colors */
+
+.grey {
+    color: #8f98a1;
+}
+.red {
+    color: red;
+}
+.black {
+    color: black;
+}
+
+/* ---------------------------------------- links */
+
+.link-button {
+    color: #8f98a1;
+    transition: color 0.35s;
+    text-decoration: none;
+}
+.link-button:hover {
+    color: red;
+    transition: color 0.35s;
+}
+.link-button:focus {
+    color: black;
+    transition: color 0.35s;
+}
+.link-button:active {
+    color: black;
+    transition: color 0.35s;
+}
+
+.link-text a{
+    color: red;
+    transition: color 0.35s;
+    text-decoration: none;
+}
+.link-text a:hover {
+    color: #8f98a1;
+    transition: color 0.35s;
+}
+.link-text a:focus {
+    color: black;
+    transition: color 0.35s;
+}
+.link-text a:active {
+    color: red;
+    transition: color 0.35s;
 }
 
 /* ---------------------------------------- accordion short code */
@@ -193,16 +254,6 @@ hr.light {
 .news-post-title {
     text-transform: uppercase;
     letter-spacing: 0.1em;
-}
-.news-post-text {
-
-}
-
-.row-news-post-content a {
-    color: red;
-}
-.row-news-post-content a:hover {
-    color: #8f98a1;
 }
 
 /* ---------------------------------------- top bar */
@@ -244,16 +295,12 @@ hr.light {
     width: 100%;
     padding-top: 5px;
     padding-bottom: 7px;
-    color: #8f98a1;
+
     text-transform: uppercase;
     letter-spacing: 0.1em;
 }
 .sidebar-button-current {
-    color: #000000;
-}
-.sidebar-button:hover {
-    color: red;
-    text-decoration: none;
+    color: black;
 }
 
 /* ---------------------------------------- info sub section */
@@ -268,16 +315,6 @@ hr.light {
 }
 .info-block-first {
     padding-top: 2em;
-}
-.info-text {
-    color: #8f98a1;
-}
-.info-link {
-    color: #8f98a1;
-}
-.info-link:hover {
-    color: red;
-    text-decoration: none;
 }
 
 /* ---------------------------------------- sub category section */

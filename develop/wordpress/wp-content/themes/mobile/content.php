@@ -16,7 +16,7 @@
                 }
             }
         ?>
-        <p class="news-post-text"><?php the_date('d.m.Y') ?></p>
+        <p class="link-text"><?php the_date('d.m.Y') ?></p>
     </div>
 
     <div class="row-news-post-separator"></div>
@@ -24,7 +24,7 @@
     <div class="row-news-post-content">
         <p class="news-post-title"><?php the_title(); ?></p>
         <br>
-        <p class="news-post-text"><?php the_content(); ?></p>
+        <p class="link-text"><?php the_content(); ?></p>
     </div>
 
 </div><!-- /.news -->

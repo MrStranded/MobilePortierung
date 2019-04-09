@@ -7,8 +7,6 @@ echo '<div class="row-nomargin">';
         // the do_shortcode($content) command to parse them
         $content = '';
 
-        //$content .= '[su_accordion class="spoiler-content"]';
-
         while (have_rows('inhalt')) {
             the_row();
 
@@ -27,11 +25,18 @@ echo '<div class="row-nomargin">';
                             $content .= '<h1>' . get_the_title() . '</h1>';
                         $content .= '</div>';
 
-                        if (get_sub_field('strasse') || get_sub_field('ort') || get_sub_field('telefon') || get_sub_field('fax') || get_sub_field('email')) {
+                        // we need to know what kinds of info there are in order to group them accordingly
+                        $hasLocationInfo = (get_sub_field('strasse') || get_sub_field('ort'));
+                        $hasContactInfo = (get_sub_field('telefon') || get_sub_field('fax') || get_sub_field('email'));
+                        $hasInfo = ($hasLocationInfo || $hasContactInfo);
+
+                        // --------------------------- any info at all
+                        if ($hasInfo) {
                             $content .= '<div class="info-block-first">';
                         };
 
-                        if (get_sub_field('strasse') || get_sub_field('ort')) {
+                        // --------------------------- location info
+                        if ($hasLocationInfo) {
                             $content .= '<hr class="light">';
                             $content .= '<div class="info-block">';
                         };
@@ -42,25 +47,26 @@ echo '<div class="row-nomargin">';
                             $map_url = $map_url . urlencode_deep(get_sub_field('ort'));
                             $map_url = $map_url . '+' . urlencode_deep(get_sub_field('strasse'));
 
-                            $content .= '<a class="info-link" target="_blank" href="' . $map_url . '"><p>' . get_sub_field('strasse') . '</p>';
+                            $content .= '<a class="link-button" target="_blank" href="' . $map_url . '"><p>' . get_sub_field('strasse') . '</p>';
                             $content .= '<p>' . get_sub_field('ort') . '</p></a>';
                         } else {
                             if (get_sub_field('strasse')) {
                                 $hadPreviousContent = true;
 
-                                $content .= '<p class="info-text">' . get_sub_field('strasse') . '</p>';
+                                $content .= '<p class="grey">' . get_sub_field('strasse') . '</p>';
                             };
                             if (get_sub_field('ort')) {
                                 $hadPreviousContent = true;
 
-                                $content .= '<p class="info-text">' . get_sub_field('ort') . '</p>';
+                                $content .= '<p class="grey">' . get_sub_field('ort') . '</p>';
                             };
                         };
-                        if (get_sub_field('strasse') || get_sub_field('ort')) {
+                        if ($hasLocationInfo) {
                             $content .= '</div>';
                         };
 
-                        if (get_sub_field('telefon') || get_sub_field('fax') || get_sub_field('email')) {
+                        // --------------------------- contact info
+                        if ($hasContactInfo) {
                             $hadPreviousContent = true;
                             $content .= '<hr class="light">';
                             $content .= '<div class="info-block">';
@@ -70,15 +76,16 @@ echo '<div class="row-nomargin">';
                             if (mb_substr($telnr, 0, 1) == '0') {
                                 $telnr = '+41' . mb_substr($telnr, 1);
                             }
-                            $content .= '<a class="info-link" href="tel:' . $telnr . '"><p>Tel.: ' . get_sub_field('telefon') . '</p></a>';
+                            $content .= '<a class="link-button" href="tel:' . $telnr . '"><p>Tel.: ' . get_sub_field('telefon') . '</p></a>';
                         };
-                        if (get_sub_field('fax')) { $content .= '<p class="info-text">Fax: ' . get_sub_field('fax') . '</p>'; };
-                        if (get_sub_field('email')) { $content .= '<a class="info-link" href="mailto: ' . get_sub_field('email') . '"><p>' . get_sub_field('email') . '</p></a>'; };
-                        if (get_sub_field('telefon') || get_sub_field('fax') || get_sub_field('email')) {
+                        if (get_sub_field('fax')) { $content .= '<p class="grey">Fax: ' . get_sub_field('fax') . '</p>'; };
+                        if (get_sub_field('email')) { $content .= '<a class="link-button" href="mailto: ' . get_sub_field('email') . '"><p>' . get_sub_field('email') . '</p></a>'; };
+                        if ($hasContactInfo) {
                             $content .= '</div>';
                         };
 
-                        if (get_sub_field('strasse') || get_sub_field('ort') || get_sub_field('telefon') || get_sub_field('fax') || get_sub_field('email')) {
+                        // --------------------------- /any info at all
+                        if ($hasInfo) {
                             $content .= '</div>';
                         };
 
@@ -88,7 +95,7 @@ echo '<div class="row-nomargin">';
                         //if ($hadPreviousContent) {
                             $content .= '<hr class="dark">';
                         //};
-                        $content .= '<div class="info-block">';
+                        $content .= '<div class="info-block link-text">';
                             $content .= '<p>' . nl2br(get_sub_field('text')) . '</p>';
                         $content .= '</div>'; // / info-block
                     };
@@ -99,23 +106,28 @@ echo '<div class="row-nomargin">';
 
                 $content .= '<div class="row-hr"><hr class="dark"></div>';
 
-                //$content .= '[su_spoiler class="spoiler" title="' . 'Team' . '" open="no" icon="chevron"]';
                 $content .= '[customAccordeon title="' . 'Team' . '"]';
                 $content .= '<div class="row-sub-section">';
+
+                    $membersOnRow = 0;
 
                     while (have_rows('mitarbeiter')) {
                         the_row();
 
+                        $membersOnRow = $membersOnRow + 1;
+                        if ($membersOnRow == 1) {
                             $content .= '<div class="row-member">';
+                        };
+                        $content .= '<div class="col-member">';
 
-                                $content .= '<div class="col-image">';
+                            $content .= '<div class="row-thumbnail">';
                                 $image_id = get_sub_field('bild');
                                 if ($image_id) {
                                     $content .= wp_get_attachment_image($image_id, 'thumbnail', true, array("class" => "alignright"));
                                 };
                             $content .= '</div>';
 
-                            $content .= '<div class="col">';
+                            $content .= '<div class="row-info">';
                                 if (get_sub_field('name')) {
                                     $content .= '<p>' . get_sub_field('name') . '</p>';
                                 };
@@ -123,13 +135,21 @@ echo '<div class="row-nomargin">';
                                         $content .= '<p>' . get_sub_field('position') . '</p>';
                                 };
                                 if (get_sub_field('email')) {
-                                    $content .= '<a class="info-link" href="mailto: ' . get_sub_field('email') . '">' . get_sub_field('email') . '</a>';
+                                    $content .= '<a class="link-button" href="mailto: ' . get_sub_field('email') . '">' . get_sub_field('email') . '</a>';
                                 };
                             $content .= '</div>';
 
-                        $content .= '</div>'; // /row-member
+                        $content .= '</div>'; // /col-member
+                        if ($membersOnRow == 2) {
+                            $content .= '</div>'; // /row-member
+                            $membersOnRow = 0;
+                        };
 
                     };
+
+                    if ($membersOnRow != 0) {
+                        $content .= '</div>'; // /row-member
+                    }
 
                 $content .= '</div>'; // /row-sub-section
                 $content .= '[/customAccordeon]';
@@ -138,7 +158,6 @@ echo '<div class="row-nomargin">';
 
                 $content .= '<div class="row-hr"><hr class="dark"></div>';
 
-                //$content .= '[su_spoiler class="spoiler" title="' . 'Links' . '" open="no" icon="chevron"]';
                 $content .= '[customAccordeon title="' . 'Links' . '"]';
                 $content .= '<div class="row-sub-section">';
 
@@ -150,7 +169,7 @@ echo '<div class="row-nomargin">';
                     if (get_sub_field('beschreibung')) {
                         $content .= '<p>' . nl2br(get_sub_field('beschreibung')) . '</p>';
                     };
-                    $content .= '<a class="info-link" href="' . get_sub_field('url') . '">' . get_sub_field('name') . '</a>';
+                    $content .= '<a class="link-button" href="' . get_sub_field('url') . '">' . get_sub_field('name') . '</a>';
 
                     $content .= '</div>'; // /row-link
 
@@ -163,10 +182,8 @@ echo '<div class="row-nomargin">';
 
                 $content .= '<div class="row-hr"><hr class="dark"></div>';
 
-                //$content .= '[su_spoiler class="spoiler" title="' . get_sub_field('titel') . '" open="no" icon="chevron"]';
                 $content .= '[customAccordeon title="' . get_sub_field('titel') . '"]';
                 $content .= '<div class="row-sub-section">';
-                //$content .= '[_su_accordion class="spoiler-content"]';
 
                 while (have_rows('unterkategorie')) {
                     the_row();
@@ -174,29 +191,23 @@ echo '<div class="row-nomargin">';
                     $content .= '<div class="row-hr"><hr class="light"></div>';
 
                     $content .= '[customSubAccordeon title="' . get_sub_field('ueberschrift') . '"]';
-                    //$content .= '[_su_spoiler class="spoiler" title="' . get_sub_field('ueberschrift') . '" open="no" icon="caret"]';
-                    $content .= '<div class="row-sub-section">';
+                    $content .= '<div class="row-sub-section link-text">';
 
                     if (get_sub_field('text')) {
                         $content .= '<p>' . nl2br(get_sub_field('text')) . '</p>';
                     };
 
                     $content .= '</div>'; // /row-sub-section
-                    //$content .= '[_/su_spoiler]';
                     $content .= '[/customSubAccordeon]';
 
                 };
 
-                //$content .= '[_/su_accordion]';
                 $content .= '</div>'; // /row-sub-section
-                //$content .= '[/su_spoiler]';
                 $content .= '[/customAccordeon]';
 
             };
 
         }; // while
-
-        //$content .= '[/su_accordion]';
 
         echo do_shortcode($content);
 
