@@ -41,6 +41,7 @@
                 <img id="slide-menu-button-open" onclick="openSidePanel()" style="width: 100%;" src="<?php echo get_template_directory_uri(); ?>/images/baseline_menu_black_48dp_2x.png" alt="Open Menu" />
                 <img id="slide-menu-button-close" onclick="closeSidePanel()" style="width: 100%; display: none;" src="<?php echo get_template_directory_uri(); ?>/images/baseline_close_black_48dp_2x.png" alt="Close Menu" />
             </div>
+            <hr class="dark">
         </div>
 
         <div class="page-container">

@@ -81,7 +81,7 @@ function customAccordeonBase($atts, $content, $level) {
         $output .= '<div class="mobile-shortcodes-default" onclick="changeDivVisibility(\'' . $attributes['id'] . '\');">';
             $output .= '<p class="' . $titleClass . '" id="' . $attributes['id'] . '_title' . '">' . $prefix . ' ' . $attributes['title'] . '</p>';
         $output .='</div>';
-        $output .= '<div id="' . $attributes['id'] . '" style="display: ' . $divDisplay . ';">' . do_shortcode($content) . '</div>';
+        $output .= '<div class="mobile-shortcodes-accordeon" id="' . $attributes['id'] . '" style="display: ' . $divDisplay . ';">' . do_shortcode($content) . '</div>';
     $output .= '</div>';
     return $output;
 }

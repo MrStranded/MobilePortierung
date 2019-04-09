@@ -198,6 +198,13 @@ hr.light {
 
 }
 
+.row-news-post-content a {
+    color: red;
+}
+.row-news-post-content a:hover {
+    color: #8f98a1;
+}
+
 /* ---------------------------------------- top bar */
 
 .menu-container {
@@ -212,7 +219,7 @@ hr.light {
     position: fixed;
     transition: top 0.5s;
 
-    background-color: #fafafa; /*#ffffff;*/
+    background-color: /*#fafafa;*/ #ffffff;
 }
 .menu-banner {
     width: 25%;
@@ -283,6 +290,9 @@ hr.light {
     padding-bottom: 3em;
     cursor: pointer;
 }
+.mobile-shortcodes-default:hover {
+    color: red;
+}
 .mobile-shortcodes-title {
     margin-left: 0px;
 
@@ -293,6 +303,9 @@ hr.light {
     color: #8f98a1;
 }
 .mobile-shortcodes-title-sub {
+}
+.mobile-shortcodes-accordeon {
+    transition: max-height 1s;
 }
 
 /* ---------------------------------------- settings for mobile version fo website */

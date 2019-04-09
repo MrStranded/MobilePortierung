@@ -7,7 +7,7 @@ echo '<div class="row-nomargin">';
         // the do_shortcode($content) command to parse them
         $content = '';
 
-        $content .= '[su_accordion class="spoiler-content"]';
+        //$content .= '[su_accordion class="spoiler-content"]';
 
         while (have_rows('inhalt')) {
             the_row();
@@ -99,7 +99,8 @@ echo '<div class="row-nomargin">';
 
                 $content .= '<div class="row-hr"><hr class="dark"></div>';
 
-                $content .= '[su_spoiler class="spoiler" title="' . 'Team' . '" open="no" icon="chevron"]';
+                //$content .= '[su_spoiler class="spoiler" title="' . 'Team' . '" open="no" icon="chevron"]';
+                $content .= '[customAccordeon title="' . 'Team' . '"]';
                 $content .= '<div class="row-sub-section">';
 
                     while (have_rows('mitarbeiter')) {
@@ -131,13 +132,14 @@ echo '<div class="row-nomargin">';
                     };
 
                 $content .= '</div>'; // /row-sub-section
-                $content .= '[/su_spoiler]';
+                $content .= '[/customAccordeon]';
 
             } elseif (get_row_layout() == 'links') {
 
                 $content .= '<div class="row-hr"><hr class="dark"></div>';
 
-                $content .= '[su_spoiler class="spoiler" title="' . 'Links' . '" open="no" icon="chevron"]';
+                //$content .= '[su_spoiler class="spoiler" title="' . 'Links' . '" open="no" icon="chevron"]';
+                $content .= '[customAccordeon title="' . 'Links' . '"]';
                 $content .= '<div class="row-sub-section">';
 
                 while (have_rows('link')) {
@@ -155,7 +157,7 @@ echo '<div class="row-nomargin">';
                 };
 
                 $content .= '</div>'; // /row-sub-section
-                $content .= '[/su_spoiler]';
+                $content .= '[/customAccordeon]';
 
             } elseif (get_row_layout() == 'kategorie') {
 
@@ -194,7 +196,7 @@ echo '<div class="row-nomargin">';
 
         }; // while
 
-        $content .= '[/su_accordion]';
+        //$content .= '[/su_accordion]';
 
         echo do_shortcode($content);
 

@@ -13,7 +13,7 @@
                 if ($first == true) {
                     $first = false;
                 } else {
-                    echo '<hr class="dark" >';
+                    echo '<hr class="light" >';
                     echo '<p class="sidebar-button" >&nbsp;</p >';
                 }
 
@@ -22,11 +22,13 @@
                     //$page = get_post($item->object_id);
 
                     $buttonClass = "sidebar-button";
-                    if ($item->object_id == $currentPage) {
+                    $hrClass = "light";
+                    if ($item->object_id == $currentPage || ($item->object_id == 111  && is_home())) {
                         $buttonClass .= " sidebar-button-current";
+                        $hrClass = "dark";
                     }
 
-                    echo '<hr class="dark">';
+                    echo '<hr class="' . $hrClass . '">';
                     echo '<a class="' . $buttonClass . '" href="' . $item->url . '">' . $item->title . '</a>';
                 }
 
@@ -35,6 +37,6 @@
 
     </div>
 
-    <hr class="dark">
+    <hr class="light">
 
 </div>
