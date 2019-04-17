@@ -10,6 +10,9 @@
                     if (have_posts()) {
                         while (have_posts()) {
                             the_post();
+                            // we need the post object to reliably retrieve the post's date
+                            $post = get_post(get_the_ID());
+                            echo $post->post_date;
 
                             echo '<div class="news-post">';
 
@@ -33,15 +36,15 @@
 
                                 echo '<div class="row-news-post-separator"></div>';
 
-                                    echo '<div class="row-news-post-content">';
-                                        echo '<p class="news-post-title">' . the_title() . '</p>';
-                                        echo '<br>';
-                                        echo '<p class="link-text">' . the_content() . '</p>';
-                                    echo '</div>';
+                                echo '<div class="row-news-post-content">';
+                                    echo '<p class="news-post-title">' . the_title() . '</p>';
+                                    echo '<br>';
+                                    echo '<p class="link-text">' . the_content() . '</p>';
+                                echo '</div>';
 
-                                echo '</div>'; // /.news
+                            echo '</div>'; // /.news-post
 
-                            echo '<br><br>';
+                            //echo '<br><br>';
                         }
                     }
                 ?>
