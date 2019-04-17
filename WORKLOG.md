@@ -22,3 +22,4 @@ Date | Begun | Stopped | Goal | Result
 05.04.19 | 16:30 | 18:30 | Setting up special pages | Special pages are processed correctly and improved custom short codes
 09.04.19 | 13:00 | 15:30 | Discussion with Michael for final improvements | Insight into remaining tasks
 09.04.19 | 18:30 | 19:30 | Improve overall style and shortcodes | Worked on team representation and overall css classes
+17.04.19 | 11:30 | 11:45 | Implement some of the discussion points | Directly integrated content.php into index.php
