@@ -323,52 +323,39 @@ hr.light {
 
 /* ---------------------------------------- default styles of mobile short code elements */
 
-.mobile-shortcodes-default {
+.mobile-shortcodes-title {
     padding-bottom: 3em;
     cursor: pointer;
-    transition: color 0.35s;
-}
-.mobile-shortcodes-default:hover {
-    color: red;
-    transition: color 0.35s;
-}
-.mobile-shortcodes-default:focus {
-    color: black;
-    transition: color 0.35s;
-}
-.mobile-shortcodes-default:active {
-    color: black;
-    transition: color 0.35s;
-}
-
-.mobile-shortcodes-title {
     margin-left: 0px;
-
     text-transform: uppercase;
     letter-spacing: 0.1em;
-}
 
-.mobile-shortcodes-title-hidden {
     color: #8f98a1;
     transition: color 0.35s;
 }
-.mobile-shortcodes-title-hidden:hover {
+.mobile-shortcodes-title:hover {
     color: red;
     transition: color 0.35s;
 }
-.mobile-shortcodes-title-hidden:focus {
+.mobile-shortcodes-title:focus {
     color: black;
     transition: color 0.35s;
 }
-.mobile-shortcodes-title-hidden:active {
+.mobile-shortcodes-title:active {
     color: black;
     transition: color 0.35s;
 }
 
-.mobile-shortcodes-title-sub {
+.mobile-shortcodes-title-open {
+    color: black;
 }
-.mobile-shortcodes-accordeon {
-    transition: max-height 1s;
+
+.mobile-shortcodes-content-open {
+    transition: height 1s;
+}
+.mobile-shortcodes-content-closed {
+    height: 0;
+    transition: height 1s;
 }
 
 /* ---------------------------------------- settings for mobile version fo website */

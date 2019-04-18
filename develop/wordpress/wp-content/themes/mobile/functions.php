@@ -39,6 +39,7 @@ function loadScriptFile($script) {
 // ---------------------------------------------------------------------------------------------------------------------
 
 $custom_shortcode_counter = 0;
+$custom_shortcode_current_parent = '';
 
 function initializeShortCode() {
     add_shortcode('customAccordeon', 'customAccordeon');
@@ -62,6 +63,15 @@ function customAccordeonBase($atts, $content, $level) {
         $atts
     );
 
+    // all spoiler on the top level have the same class
+    $spoilerLevelClass = 'mobile-shortcodes-toplevel';
+    // set current spoiler as parent, if on upper most level
+    if ($level == 0) {
+        $GLOBALS['custom_shortcode_current_parent'] = $attributes['id'];
+    } else {
+        $spoilerLevelClass = 'sub_' . $GLOBALS['custom_shortcode_current_parent'];
+    }
+
     // increase id counter so ids stay unique
     $GLOBALS['custom_shortcode_counter'] = $GLOBALS['custom_shortcode_counter'] + 1;
 
@@ -69,19 +79,19 @@ function customAccordeonBase($atts, $content, $level) {
     $prefix = "";
     if ($level == 1) { $prefix = json_decode('"\uf8ff"'); }
 
-    $titleClass = "mobile-shortcodes-title";
-    if ($level == 1) { $titleClass .= " mobile-shortcodes-title-hidden mobile-shortcodes-title-sub"; }
+    //$titleClass = "mobile-shortcodes-title";
+    //if ($level == 1) { $titleClass .= " mobile-shortcodes-title-hidden mobile-shortcodes-title-sub"; }
 
-    $divDisplay = "";
-    if ($level == 1) { $divDisplay = "none"; }
+    //$divDisplay = "";
+    //if ($level == 1) { $divDisplay = "none"; }
 
     // building the output html code
     $output = "";
     $output .= '<div>';
-        $output .= '<div class="mobile-shortcodes-default" onclick="changeDivVisibility(\'' . $attributes['id'] . '\');">';
-            $output .= '<p class="' . $titleClass . '" id="' . $attributes['id'] . '_title' . '">' . $prefix . ' ' . $attributes['title'] . '</p>';
+        $output .= '<div id="' . $attributes['id'] . '_title" class="' . $spoilerLevelClass . '-title mobile-shortcodes-title" onclick="changeDivVisibility(\'' . $attributes['id'] . '\',\'' . $spoilerLevelClass . '\');">';
+            $output .= '<p>' . $prefix . ' ' . $attributes['title'] . '</p>';
         $output .='</div>';
-        $output .= '<div class="mobile-shortcodes-accordeon" id="' . $attributes['id'] . '" style="display: ' . $divDisplay . ';">' . do_shortcode($content) . '</div>';
+        $output .= '<div id="' . $attributes['id'] . '" class="' . $spoilerLevelClass . ' mobile-shortcodes-content-closed">' . do_shortcode($content) . '</div>';
     $output .= '</div>';
     return $output;
 }
