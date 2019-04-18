@@ -22,13 +22,20 @@
 
                     $buttonClass = "sidebar-button";
                     $hrClass = "light";
+                    // the home id is hardcoded, possibly has to be changed upon site migration
                     if ($item->object_id == $currentPage || ($item->object_id == 111  && is_home())) {
                         $buttonClass .= " sidebar-button-current";
                         $hrClass = "dark";
                     }
 
+                    $newTab = "";
+                    // custom links lead to a new tab (except custom link to news page)
+                    if ($item->type == "custom" && $item->object_id != 111) {
+                        $newTab = ' target="_blank"';
+                    }
+
                     echo '<hr class="' . $hrClass . '">';
-                    echo '<a class="link-button ' . $buttonClass . '" href="' . $item->url . '">' . $item->title . '</a>';
+                    echo '<a class="link-button ' . $buttonClass . '" href="' . $item->url . '" ' . $newTab . '>' . $item->title . '</a>';
                 }
 
             }

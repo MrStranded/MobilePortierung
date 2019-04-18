@@ -186,6 +186,7 @@ hr.light {
 
 /* ---------------------------------------- links */
 
+/* An element that's marked as a link-button is grey and becomes red when hovering over it */
 .link-button {
     color: #8f98a1;
     transition: color 0.35s;
@@ -204,6 +205,7 @@ hr.light {
     transition: color 0.35s;
 }
 
+/* Links inside of an element that's marked as a link-text will be red and become grey when hovering over them */
 .link-text a{
     color: red;
     transition: color 0.35s;
@@ -239,21 +241,19 @@ hr.light {
 
 .news-post {
     width: inherit;
-    display: flex;
+    padding-bottom: 3em;
 }
-.row-news-post-info {
-    flex: 40%;
-}
-.row-news-post-separator {
-    flex: 5%;
-}
-.row-news-post-content {
-    flex: 55%;
-}
-
 .news-post-title {
     text-transform: uppercase;
     letter-spacing: 0.1em;
+}
+.news-title {
+    color: #000000;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding-top: 5px;
+    padding-bottom: calc(2em + 7px);
+
 }
 
 /* ---------------------------------------- top bar */
@@ -326,19 +326,45 @@ hr.light {
 .mobile-shortcodes-default {
     padding-bottom: 3em;
     cursor: pointer;
+    transition: color 0.35s;
 }
 .mobile-shortcodes-default:hover {
     color: red;
+    transition: color 0.35s;
 }
+.mobile-shortcodes-default:focus {
+    color: black;
+    transition: color 0.35s;
+}
+.mobile-shortcodes-default:active {
+    color: black;
+    transition: color 0.35s;
+}
+
 .mobile-shortcodes-title {
     margin-left: 0px;
 
     text-transform: uppercase;
     letter-spacing: 0.1em;
 }
+
 .mobile-shortcodes-title-hidden {
     color: #8f98a1;
+    transition: color 0.35s;
 }
+.mobile-shortcodes-title-hidden:hover {
+    color: red;
+    transition: color 0.35s;
+}
+.mobile-shortcodes-title-hidden:focus {
+    color: black;
+    transition: color 0.35s;
+}
+.mobile-shortcodes-title-hidden:active {
+    color: black;
+    transition: color 0.35s;
+}
+
 .mobile-shortcodes-title-sub {
 }
 .mobile-shortcodes-accordeon {
