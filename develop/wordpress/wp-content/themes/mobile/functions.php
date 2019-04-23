@@ -8,6 +8,9 @@
 
 
 
+/**
+ * Called from header.php
+ */
 function initialize() {
     loadJavaScriptFiles();
     initializeShortCode();
@@ -42,18 +45,18 @@ $custom_shortcode_counter = 0;
 $custom_shortcode_current_parent = '';
 
 function initializeShortCode() {
-    add_shortcode('customAccordeon', 'customAccordeon');
-    add_shortcode('customSubAccordeon', 'customSubAccordeon');
+    add_shortcode('mobileAccordeon', 'mobileAccordeon');
+    add_shortcode('mobileSubAccordeon', 'mobileSubAccordeon');
 }
 
-function customAccordeon($atts, $content = "") {
-    return customAccordeonBase($atts, $content, 0);
+function mobileAccordeon($atts, $content = "") {
+    return mobileAccordeonBase($atts, $content, 0);
 }
-function customSubAccordeon($atts, $content = "") {
-    return customAccordeonBase($atts, $content, 1);
+function mobileSubAccordeon($atts, $content = "") {
+    return mobileAccordeonBase($atts, $content, 1);
 }
 
-function customAccordeonBase($atts, $content, $level) {
+function mobileAccordeonBase($atts, $content, $level) {
     // defining default attributes
     $attributes = shortcode_atts(
         array(
@@ -80,7 +83,7 @@ function customAccordeonBase($atts, $content, $level) {
     $prefix = "";
     if ($level == 1) { $prefix = json_decode('"\uf8ff"'); }
 
-    // initially hidden or shown?
+    // initially open or closed?
     $initialStyle = 'display: none;';
     $initialTitleClass = '';
     if ($attributes['open'] == 'yes') {
@@ -92,6 +95,7 @@ function customAccordeonBase($atts, $content, $level) {
     $output = "";
     $output .= '<div>';
         $output .= '<div id="' . $attributes['id'] . '_title" class="' . $spoilerLevelClass . '-title mobile-shortcodes-title ' . $initialTitleClass . '" onclick="changeDivVisibility(\'' . $attributes['id'] . '\',\'' . $spoilerLevelClass . '\');">';
+            $output .= '<div class="row-hr"><hr class="mobile-shortcodes-hr"></div>';
             $output .= '<p>' . $prefix . ' ' . $attributes['title'] . '</p>';
         $output .='</div>';
         $output .= '<div id="' . $attributes['id'] . '" class="' . $spoilerLevelClass . ' mobile-shortcodes-content" style="' . $initialStyle . '">' . do_shortcode($content) . '</div>';

@@ -26,3 +26,4 @@ Date | Begun | Stopped | Goal | Result
 18.04.19 | 14:45 | 16:00 | Implement some of the discussion points | Finalized news category
 18.04.19 | 17:30 | 18:20 | Shortcodes accordeon only one sub open at a time | Considerable progress on shortcodes
 23.04.19 | 16:00 | 17:00 | Various improvements | Short codes greatly improved
+23.04.19 | 18:30 | 19:30 | Various improvements | The struggle with the hr color transitions

@@ -296,11 +296,57 @@ hr.light {
     padding-top: 5px;
     padding-bottom: 7px;
 
+    color: #8f98a1;
+    transition: color 0.35s;
+
     text-transform: uppercase;
+    text-decoration: none;
     letter-spacing: 0.1em;
 }
 .sidebar-button-current {
     color: black;
+}
+
+.sidebar-div hr {
+    width: inherit;
+
+    border-top: 2px solid #8f98a1;
+    transition: border-top-color 0.35s;
+
+    opacity: 0.8;
+    margin: 0;
+    padding: 0;
+    z-index: 0;
+}
+
+.sidebar-div a {
+    color: #8f98a1;
+    transition: color 0.35s;
+}
+.sidebar-div:hover a {
+    color: red;
+    transition: color 0.35s;
+}
+.sidebar-div:focus a {
+    color: black;
+    transition: color 0.35s;
+}
+.sidebar-div:active a {
+    color: black;
+    transition: color 0.35s;
+}
+
+.sidebar-div:hover hr {
+    border-top-color: red;
+    transition: border-top-color 0.35s;
+}
+.sidebar-div:focus hr {
+    border-top-color: black;
+    transition: border-top-color 0.35s;
+}
+.sidebar-div:active hr {
+    border-top-color: black;
+    transition: border-top-color 0.35s;
 }
 
 /* ---------------------------------------- info sub section */
@@ -331,26 +377,44 @@ hr.light {
     letter-spacing: 0.1em;
 
     color: #8f98a1;
-    transition: color 0.35s;
+    border-top: 2px solid #8f98a1;
+
+    transition: color 0.35s, border-top-color 0.35s;
 }
 .mobile-shortcodes-title:hover {
     color: red;
-    transition: color 0.35s;
+    border-top-color: red;
+
+    transition: color 0.35s, border-top-color 0.35s;
 }
 .mobile-shortcodes-title:focus {
     color: black;
-    transition: color 0.35s;
+    border-top-color: black;
+
+    transition: color 0.35s, border-top-color 0.35s;
 }
 .mobile-shortcodes-title:active {
     color: black;
-    transition: color 0.35s;
+    border-top-color: black;
+
+    transition: color 0.35s, border-top-color 0.35s;
 }
 
 .mobile-shortcodes-title-open {
     color: black;
+    border-top-color: black;
+
+    transition: color 0.35s, border-top-color 0.35s;
 }
 
 .mobile-shortcodes-content {
+}
+
+.mobile-shortcodes-hr {
+    opacity: 0.8;
+    margin: 0;
+    padding: 0;
+    z-index: 0;
 }
 
 /* ---------------------------------------- settings for mobile version fo website */

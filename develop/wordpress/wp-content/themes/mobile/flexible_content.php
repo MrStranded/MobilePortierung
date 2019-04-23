@@ -7,13 +7,14 @@ echo '<div class="row-nomargin">';
         // the do_shortcode($content) command to parse them
         $content = '';
 
+        // if there is no content in the description, then we do not draw a horizontal line. that's why we need this boolean
+        // secondly we use it to decide whether custom spoilers should be opened or not
+        $hadPreviousContent = false;
+
         while (have_rows('inhalt')) {
             the_row();
 
             if (get_row_layout() == 'beschreibung') {
-
-                // if there is no content in the description, then we do not draw a horizontal line. that's why we need this boolean
-                $hadPreviousContent = false;
 
                 $content .= '<div class="row-hr"><hr class="dark"></div>';
 
@@ -92,9 +93,8 @@ echo '<div class="row-nomargin">';
                     $content .= '</div>'; // info
 
                     if (get_sub_field('text')) {
-                        //if ($hadPreviousContent) {
-                            $content .= '<hr class="dark">';
-                        //};
+                        $hadPreviousContent = true;
+                        $content .= '<hr class="dark">';
                         $content .= '<div class="info-block link-text">';
                             $content .= '<p>' . nl2br(get_sub_field('text')) . '</p>';
                         $content .= '</div>'; // / info-block
@@ -106,7 +106,10 @@ echo '<div class="row-nomargin">';
 
                 $content .= '<div class="row-hr"><hr class="dark"></div>';
 
-                $content .= '[customAccordeon title="' . 'Team' . '"]';
+                $open = $hadPreviousContent ? '' : 'open="yes"';
+                $hadPreviousContent = true;
+
+                $content .= '[mobileAccordeon title="' . 'Team' . '" ' . $open . ']';
                 $content .= '<div class="row-sub-section">';
 
                     $membersOnRow = 0;
@@ -152,13 +155,16 @@ echo '<div class="row-nomargin">';
                     }
 
                 $content .= '</div>'; // /row-sub-section
-                $content .= '[/customAccordeon]';
+                $content .= '[/mobileAccordeon]';
 
             } elseif (get_row_layout() == 'links') {
 
                 $content .= '<div class="row-hr"><hr class="dark"></div>';
 
-                $content .= '[customAccordeon title="' . 'Links' . '"]';
+                $open = $hadPreviousContent ? '' : 'open="yes"';
+                $hadPreviousContent = true;
+
+                $content .= '[mobileAccordeon title="' . 'Links' . '" ' . $open . ']';
                 $content .= '<div class="row-sub-section">';
 
                 while (have_rows('link')) {
@@ -176,21 +182,24 @@ echo '<div class="row-nomargin">';
                 };
 
                 $content .= '</div>'; // /row-sub-section
-                $content .= '[/customAccordeon]';
+                $content .= '[/mobileAccordeon]';
 
             } elseif (get_row_layout() == 'kategorie') {
 
-                $content .= '<div class="row-hr"><hr class="dark"></div>';
+                //$content .= '<div class="row-hr"><hr class="dark"></div>';
 
-                $content .= '[customAccordeon title="' . get_sub_field('titel') . '" open="yes"]';
+                $open = $hadPreviousContent ? '' : 'open="yes"';
+                $hadPreviousContent = true;
+
+                $content .= '[mobileAccordeon title="' . get_sub_field('titel') . '" ' . $open . ']';
                 $content .= '<div class="row-sub-section">';
 
                 while (have_rows('unterkategorie')) {
                     the_row();
 
-                    $content .= '<div class="row-hr"><hr class="light"></div>';
+                    //$content .= '<div class="row-hr"><hr class="light"></div>';
 
-                    $content .= '[customSubAccordeon title="' . get_sub_field('ueberschrift') . '"]';
+                    $content .= '[mobileSubAccordeon title="' . get_sub_field('ueberschrift') . '"]';
                     $content .= '<div class="row-sub-section link-text">';
 
                     if (get_sub_field('text')) {
@@ -198,12 +207,12 @@ echo '<div class="row-nomargin">';
                     };
 
                     $content .= '</div>'; // /row-sub-section
-                    $content .= '[/customSubAccordeon]';
+                    $content .= '[/mobileSubAccordeon]';
 
                 };
 
                 $content .= '</div>'; // /row-sub-section
-                $content .= '[/customAccordeon]';
+                $content .= '[/mobileAccordeon]';
 
             };
 
