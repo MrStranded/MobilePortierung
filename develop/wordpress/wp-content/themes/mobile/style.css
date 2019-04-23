@@ -350,12 +350,7 @@ hr.light {
     color: black;
 }
 
-.mobile-shortcodes-content-open {
-    transition: height 1s;
-}
-.mobile-shortcodes-content-closed {
-    height: 0;
-    transition: height 1s;
+.mobile-shortcodes-content {
 }
 
 /* ---------------------------------------- settings for mobile version fo website */

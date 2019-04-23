@@ -59,6 +59,7 @@ function customAccordeonBase($atts, $content, $level) {
         array(
             'id' => 'shortCode_' . $GLOBALS['custom_shortcode_counter'],
             'title' => 'Accordeon',
+            'open' => 'no',
         ),
         $atts
     );
@@ -79,19 +80,21 @@ function customAccordeonBase($atts, $content, $level) {
     $prefix = "";
     if ($level == 1) { $prefix = json_decode('"\uf8ff"'); }
 
-    //$titleClass = "mobile-shortcodes-title";
-    //if ($level == 1) { $titleClass .= " mobile-shortcodes-title-hidden mobile-shortcodes-title-sub"; }
-
-    //$divDisplay = "";
-    //if ($level == 1) { $divDisplay = "none"; }
+    // initially hidden or shown?
+    $initialStyle = 'display: none;';
+    $initialTitleClass = '';
+    if ($attributes['open'] == 'yes') {
+        $initialStyle = '';
+        $initialTitleClass = 'mobile-shortcodes-title-open';
+    }
 
     // building the output html code
     $output = "";
     $output .= '<div>';
-        $output .= '<div id="' . $attributes['id'] . '_title" class="' . $spoilerLevelClass . '-title mobile-shortcodes-title" onclick="changeDivVisibility(\'' . $attributes['id'] . '\',\'' . $spoilerLevelClass . '\');">';
+        $output .= '<div id="' . $attributes['id'] . '_title" class="' . $spoilerLevelClass . '-title mobile-shortcodes-title ' . $initialTitleClass . '" onclick="changeDivVisibility(\'' . $attributes['id'] . '\',\'' . $spoilerLevelClass . '\');">';
             $output .= '<p>' . $prefix . ' ' . $attributes['title'] . '</p>';
         $output .='</div>';
-        $output .= '<div id="' . $attributes['id'] . '" class="' . $spoilerLevelClass . ' mobile-shortcodes-content-closed">' . do_shortcode($content) . '</div>';
+        $output .= '<div id="' . $attributes['id'] . '" class="' . $spoilerLevelClass . ' mobile-shortcodes-content" style="' . $initialStyle . '">' . do_shortcode($content) . '</div>';
     $output .= '</div>';
     return $output;
 }

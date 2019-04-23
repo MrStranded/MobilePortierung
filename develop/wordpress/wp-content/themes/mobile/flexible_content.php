@@ -182,7 +182,7 @@ echo '<div class="row-nomargin">';
 
                 $content .= '<div class="row-hr"><hr class="dark"></div>';
 
-                $content .= '[customAccordeon title="' . get_sub_field('titel') . '"]';
+                $content .= '[customAccordeon title="' . get_sub_field('titel') . '" open="yes"]';
                 $content .= '<div class="row-sub-section">';
 
                 while (have_rows('unterkategorie')) {

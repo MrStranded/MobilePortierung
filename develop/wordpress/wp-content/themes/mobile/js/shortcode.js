@@ -1,24 +1,35 @@
-function changeDivVisibility(id, levelClass) {
-    let selfTitle = $("#" + id + "_title");
+let divToScrollTo = null;
 
-    if (selfTitle !== undefined) {
+function changeDivVisibility(id, levelClass) {
+    let title = $("#" + id + "_title");
+
+    if (title !== undefined) {
         // do we have to open this spoiler afterwards?
-        let isOpen = selfTitle.hasClass("mobile-shortcodes-title-open");
+        let isOpen = title.hasClass("mobile-shortcodes-title-open");
 
         // close all spoilers of the corresponding level
         $("." + levelClass + "-title").removeClass("mobile-shortcodes-title-open");
 
         let sameLevelContents = $("." + levelClass);
-        sameLevelContents.removeClass("mobile-shortcodes-content-open");
-        sameLevelContents.addClass("mobile-shortcodes-content-closed");
+        //sameLevelContents.removeClass("mobile-shortcodes-content-open");
+        //sameLevelContents.addClass("mobile-shortcodes-content-closed");
+        sameLevelContents.slideUp();
 
         if (!isOpen) {
             // open this spoiler if it was previously closed
-            selfTitle.addClass("mobile-shortcodes-title-open");
+            title.addClass("mobile-shortcodes-title-open");
 
-            let selfContent = $("#" + id);
-            selfContent.removeClass("mobile-shortcodes-content-closed");
-            selfContent.addClass("mobile-shortcodes-content-open");
+            let content = $("#" + id);
+            //content.removeClass("mobile-shortcodes-content-closed");
+            //content.addClass("mobile-shortcodes-content-open");
+            divToScrollTo = title;
+            content.slideDown('fast', scrollToDiv);
         }
     }
+}
+
+function scrollToDiv() {
+    $('html, body').animate({
+        scrollTop: divToScrollTo.offset().top - 80
+    }, 350);
 }

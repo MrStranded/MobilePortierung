@@ -25,3 +25,4 @@ Date | Begun | Stopped | Goal | Result
 17.04.19 | 11:45 | 12:00 | Implement some of the discussion points | Directly integrated content.php into index.php
 18.04.19 | 14:45 | 16:00 | Implement some of the discussion points | Finalized news category
 18.04.19 | 17:30 | 18:20 | Shortcodes accordeon only one sub open at a time | Considerable progress on shortcodes
+23.04.19 | 16:00 | 17:00 | Various improvements | Short codes greatly improved
