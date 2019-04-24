@@ -303,9 +303,6 @@ hr.light {
     text-decoration: none;
     letter-spacing: 0.1em;
 }
-.sidebar-button-current {
-    color: black;
-}
 
 .sidebar-div hr {
     width: inherit;
@@ -345,6 +342,15 @@ hr.light {
     transition: border-top-color 0.35s;
 }
 .sidebar-div:active hr {
+    border-top-color: black;
+    transition: border-top-color 0.35s;
+}
+
+.sidebar-div-current a {
+    color: black;
+    transition: color 0.35s;
+}
+.sidebar-div-current hr {
     border-top-color: black;
     transition: border-top-color 0.35s;
 }

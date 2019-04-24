@@ -20,23 +20,21 @@
                 foreach ($items as $item) {
                     //$page = get_post($item->object_id);
 
-                    $buttonClass = "sidebar-button";
-                    $hrClass = "";//"light";
+                    $divClass = "";
                     // the home id is hardcoded, possibly has to be changed upon site migration
                     if ($item->object_id == $currentPage || ($item->object_id == 111  && is_home())) {
-                        $buttonClass .= " sidebar-button-current";
-                        //$hrClass = "dark";
+                        $divClass .= "sidebar-div-current";
                     }
 
                     $newTab = "";
                     // custom links lead to a new tab (except custom link to news page)
                     if ($item->type == "custom" && $item->object_id != 111) {
-                        $newTab = ' target="_blank"';
+                        $newTab = 'target="_blank"';
                     }
 
-                    echo '<div class="sidebar-div">';
+                    echo '<div class="sidebar-div ' . $divClass . '">';
                         echo '<hr>';
-                        echo '<a class="' . $buttonClass . '" href="' . $item->url . '" ' . $newTab . '>' . $item->title . '</a>';
+                        echo '<a class="sidebar-button" href="' . $item->url . '" ' . $newTab . '>' . $item->title . '</a>';
                     echo '</div>';
                 }
 
