@@ -28,3 +28,4 @@ Date | Begun | Stopped | Goal | Result
 23.04.19 | 16:00 | 17:00 | Various improvements | Short codes greatly improved
 23.04.19 | 18:30 | 19:30 | Various improvements | The struggle with the hr color transitions
 24.04.19 | 11:00 | 12:00 | Fixing the sidebar buttons and beautiful menu buttons | Fixed sidebar buttons and added beautiful hamburgers
+24.04.19 | 14:30 | 15:00 | Properly display sidebar on mobile | Fixed sidebar displaying on mobile

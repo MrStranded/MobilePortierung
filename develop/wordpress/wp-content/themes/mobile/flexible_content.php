@@ -104,8 +104,6 @@ echo '<div class="row-nomargin">';
 
             } elseif (get_row_layout() == 'team') {
 
-                $content .= '<div class="row-hr"><hr class="dark"></div>';
-
                 $open = $hadPreviousContent ? '' : 'open="yes"';
                 $hadPreviousContent = true;
 
@@ -159,8 +157,6 @@ echo '<div class="row-nomargin">';
 
             } elseif (get_row_layout() == 'links') {
 
-                $content .= '<div class="row-hr"><hr class="dark"></div>';
-
                 $open = $hadPreviousContent ? '' : 'open="yes"';
                 $hadPreviousContent = true;
 
@@ -186,8 +182,6 @@ echo '<div class="row-nomargin">';
 
             } elseif (get_row_layout() == 'kategorie') {
 
-                //$content .= '<div class="row-hr"><hr class="dark"></div>';
-
                 $open = $hadPreviousContent ? '' : 'open="yes"';
                 $hadPreviousContent = true;
 
@@ -196,8 +190,6 @@ echo '<div class="row-nomargin">';
 
                 while (have_rows('unterkategorie')) {
                     the_row();
-
-                    //$content .= '<div class="row-hr"><hr class="light"></div>';
 
                     $content .= '[mobile_sub_accordeon title="' . get_sub_field('ueberschrift') . '"]';
                     $content .= '<div class="row-sub-section link-text">';

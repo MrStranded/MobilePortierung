@@ -1,47 +1,33 @@
-function testPhp() {
-    alert("template directory: " + params.template_uri);
-}
-
-function openSidePanel() {
-    document.getElementById("slide-menu-button-open").style.display = "none";
-    document.getElementById("slide-menu-button-close").style.display = "";
-    document.getElementById("sidebar-id").style.visibility = "visible";
-
-    document.getElementById("content-id").style.display = "none";
-}
-
-function closeSidePanel() {
-    document.getElementById("slide-menu-button-open").style.display = "";
-    document.getElementById("slide-menu-button-close").style.display = "none";
-    document.getElementById("sidebar-id").style.visibility = "hidden";
-
-    document.getElementById("content-id").style.display = "";
-}
+let previousScrollPosition = 0;
+let menuWasOpen = false;
 
 function toggleMenu() {
-    $(".hamburger").toggleClass("is-active");
+    let $hamburger = $(".hamburger");
+    menuWasOpen = $hamburger.hasClass("is-active");
+    $hamburger.toggleClass("is-active");
 
-    /*let sidebar = document.getElementById("sidebar-id");
-    let content = document.getElementById("content-id");
-
-    if (sidebar.style.visibility === "visible") {
-        sidebar.style.visibility = "hidden";
-        content.style.display = "";
-    } else {
-        sidebar.style.visibility = "visible";
-        content.style.display = "none";
-    }*/
-
-    let sidebar = $("#sidebar-id");
-    let content = $("#content-id");
-
-    alert(">"+sidebar.attr("visibility")+"<");
-
-    if (sidebar.visibility === "hidden") {
-        sidebar.slideUp();
-        sidebar.visibility = "visible";
+    if (!menuWasOpen) {
+        previousScrollPosition = $(document).scrollTop();
     }
 
-    sidebar.slideToggle();
-    content.slideToggle();
+    let sidebar = document.getElementById("sidebar-id");
+
+    let $sidebar = $("#sidebar-id");
+    let $content = $("#content-id");
+
+    if (sidebar.style.display === "none") {
+        sidebar.style.display = "";
+        $sidebar.slideUp();
+    }
+
+    $sidebar.slideToggle("fast");
+    $content.slideToggle("fast", goToPreviousScrollPosition);
+}
+
+function goToPreviousScrollPosition() {
+    if (menuWasOpen) {
+        $('html, body').animate({
+            scrollTop: previousScrollPosition
+        }, 0);
+    }
 }
