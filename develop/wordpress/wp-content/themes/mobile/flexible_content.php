@@ -109,7 +109,7 @@ echo '<div class="row-nomargin">';
                 $open = $hadPreviousContent ? '' : 'open="yes"';
                 $hadPreviousContent = true;
 
-                $content .= '[mobileAccordeon title="' . 'Team' . '" ' . $open . ']';
+                $content .= '[mobile_accordeon title="' . 'Team' . '" ' . $open . ']';
                 $content .= '<div class="row-sub-section">';
 
                     $membersOnRow = 0;
@@ -155,7 +155,7 @@ echo '<div class="row-nomargin">';
                     }
 
                 $content .= '</div>'; // /row-sub-section
-                $content .= '[/mobileAccordeon]';
+                $content .= '[/mobile_accordeon]';
 
             } elseif (get_row_layout() == 'links') {
 
@@ -164,7 +164,7 @@ echo '<div class="row-nomargin">';
                 $open = $hadPreviousContent ? '' : 'open="yes"';
                 $hadPreviousContent = true;
 
-                $content .= '[mobileAccordeon title="' . 'Links' . '" ' . $open . ']';
+                $content .= '[mobile_accordeon title="' . 'Links' . '" ' . $open . ']';
                 $content .= '<div class="row-sub-section">';
 
                 while (have_rows('link')) {
@@ -182,7 +182,7 @@ echo '<div class="row-nomargin">';
                 };
 
                 $content .= '</div>'; // /row-sub-section
-                $content .= '[/mobileAccordeon]';
+                $content .= '[/mobile_accordeon]';
 
             } elseif (get_row_layout() == 'kategorie') {
 
@@ -191,7 +191,7 @@ echo '<div class="row-nomargin">';
                 $open = $hadPreviousContent ? '' : 'open="yes"';
                 $hadPreviousContent = true;
 
-                $content .= '[mobileAccordeon title="' . get_sub_field('titel') . '" ' . $open . ']';
+                $content .= '[mobile_accordeon title="' . get_sub_field('titel') . '" ' . $open . ']';
                 $content .= '<div class="row-sub-section">';
 
                 while (have_rows('unterkategorie')) {
@@ -199,7 +199,7 @@ echo '<div class="row-nomargin">';
 
                     //$content .= '<div class="row-hr"><hr class="light"></div>';
 
-                    $content .= '[mobileSubAccordeon title="' . get_sub_field('ueberschrift') . '"]';
+                    $content .= '[mobile_sub_accordeon title="' . get_sub_field('ueberschrift') . '"]';
                     $content .= '<div class="row-sub-section link-text">';
 
                     if (get_sub_field('text')) {
@@ -207,12 +207,12 @@ echo '<div class="row-nomargin">';
                     };
 
                     $content .= '</div>'; // /row-sub-section
-                    $content .= '[/mobileSubAccordeon]';
+                    $content .= '[/mobile_sub_accordeon]';
 
                 };
 
                 $content .= '</div>'; // /row-sub-section
-                $content .= '[/mobileAccordeon]';
+                $content .= '[/mobile_accordeon]';
 
             };
 

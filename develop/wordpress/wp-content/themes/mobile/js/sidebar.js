@@ -17,3 +17,31 @@ function closeSidePanel() {
 
     document.getElementById("content-id").style.display = "";
 }
+
+function toggleMenu() {
+    $(".hamburger").toggleClass("is-active");
+
+    /*let sidebar = document.getElementById("sidebar-id");
+    let content = document.getElementById("content-id");
+
+    if (sidebar.style.visibility === "visible") {
+        sidebar.style.visibility = "hidden";
+        content.style.display = "";
+    } else {
+        sidebar.style.visibility = "visible";
+        content.style.display = "none";
+    }*/
+
+    let sidebar = $("#sidebar-id");
+    let content = $("#content-id");
+
+    alert(">"+sidebar.attr("visibility")+"<");
+
+    if (sidebar.visibility === "hidden") {
+        sidebar.slideUp();
+        sidebar.visibility = "visible";
+    }
+
+    sidebar.slideToggle();
+    content.slideToggle();
+}

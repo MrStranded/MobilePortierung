@@ -45,8 +45,8 @@ $custom_shortcode_counter = 0;
 $custom_shortcode_current_parent = '';
 
 function initializeShortCode() {
-    add_shortcode('mobileAccordeon', 'mobileAccordeon');
-    add_shortcode('mobileSubAccordeon', 'mobileSubAccordeon');
+    add_shortcode('mobile_accordeon', 'mobileAccordeon');
+    add_shortcode('mobile_sub_accordeon', 'mobileSubAccordeon');
 }
 
 function mobileAccordeon($atts, $content = "") {

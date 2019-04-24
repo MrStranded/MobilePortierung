@@ -27,4 +27,4 @@ Date | Begun | Stopped | Goal | Result
 18.04.19 | 17:30 | 18:20 | Shortcodes accordeon only one sub open at a time | Considerable progress on shortcodes
 23.04.19 | 16:00 | 17:00 | Various improvements | Short codes greatly improved
 23.04.19 | 18:30 | 19:30 | Various improvements | The struggle with the hr color transitions
-24.04.19 | 11:00 | x | Fixing the sidebar buttons and beautiful menu buttons | x
+24.04.19 | 11:00 | 12:00 | Fixing the sidebar buttons and beautiful menu buttons | Fixed sidebar buttons and added beautiful hamburgers
