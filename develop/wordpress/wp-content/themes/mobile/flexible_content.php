@@ -14,6 +14,8 @@ echo '<div class="row-nomargin">';
         while (have_rows('inhalt')) {
             the_row();
 
+            // ---------------------------------------------------------------------------------------------------------
+            // --------------------------------------------------------------------------- Beschreibung
             if (get_row_layout() == 'beschreibung') {
 
                 $content .= '<div class="row-hr"><hr class="dark"></div>';
@@ -102,6 +104,8 @@ echo '<div class="row-nomargin">';
 
                 $content .= '</div>'; // / row-sub-section
 
+            // ---------------------------------------------------------------------------------------------------------
+            // --------------------------------------------------------------------------- Team
             } elseif (get_row_layout() == 'team') {
 
                 $open = $hadPreviousContent ? '' : 'open="yes"';
@@ -111,14 +115,20 @@ echo '<div class="row-nomargin">';
                 $content .= '<div class="row-sub-section">';
 
                     $membersOnRow = 0;
+                    $hadPreviousMembers = false;
 
                     while (have_rows('mitarbeiter')) {
                         the_row();
 
                         $membersOnRow = $membersOnRow + 1;
                         if ($membersOnRow == 1) {
+                            if ($hadPreviousMembers) {
+                                $content .= '<div class="row-member-separation"></div>';
+                            }
                             $content .= '<div class="row-member">';
                         };
+                        $hadPreviousMembers = true;
+
                         $content .= '<div class="col-member">';
 
                             $content .= '<div class="row-thumbnail">';
@@ -130,13 +140,14 @@ echo '<div class="row-nomargin">';
 
                             $content .= '<div class="row-info">';
                                 if (get_sub_field('name')) {
-                                    $content .= '<p>' . get_sub_field('name') . '</p>';
+                                    if (get_sub_field('email')) {
+                                        $content .= '<a class="link-button" href="mailto: ' . get_sub_field('email') . '">' . get_sub_field('name') . '</a>';
+                                    } else {
+                                        $content .= '<p>' . get_sub_field('name') . '</p>';
+                                    };
                                 };
-                                    if (get_sub_field('position')) {
-                                        $content .= '<p>' . get_sub_field('position') . '</p>';
-                                };
-                                if (get_sub_field('email')) {
-                                    $content .= '<a class="link-button" href="mailto: ' . get_sub_field('email') . '">' . get_sub_field('email') . '</a>';
+                                if (get_sub_field('position')) {
+                                    $content .= '<p>' . get_sub_field('position') . '</p>';
                                 };
                             $content .= '</div>';
 
@@ -155,6 +166,8 @@ echo '<div class="row-nomargin">';
                 $content .= '</div>'; // /row-sub-section
                 $content .= '[/mobile_accordeon]';
 
+            // ---------------------------------------------------------------------------------------------------------
+            // --------------------------------------------------------------------------- Links
             } elseif (get_row_layout() == 'links') {
 
                 $open = $hadPreviousContent ? '' : 'open="yes"';
@@ -180,6 +193,8 @@ echo '<div class="row-nomargin">';
                 $content .= '</div>'; // /row-sub-section
                 $content .= '[/mobile_accordeon]';
 
+            // ---------------------------------------------------------------------------------------------------------
+            // --------------------------------------------------------------------------- Kategorie
             } elseif (get_row_layout() == 'kategorie') {
 
                 $open = $hadPreviousContent ? '' : 'open="yes"';

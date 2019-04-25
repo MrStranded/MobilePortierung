@@ -123,6 +123,10 @@ body {
 .row-member {
     display: flex;
 }
+.row-member-separation {
+    margin: 0;
+    padding: 0 0 1em;
+}
 .row-hr {
     width: inherit;
     z-index: 0;
@@ -132,27 +136,26 @@ body {
 
 .col {
     flex: 50%;
-    margin: 0;
-    margin-left: 20px;
+    margin: 0 0 0 20px;
     padding: 0;
     max-width: calc(50% - 20px);
 }
 .col-image {
     flex: 50%;
-    margin: 0;
-    margin-left: 20px;
+    margin: 0 0 0 20px;
 }
 .col-member {
     flex: 50%;
-    margin-left: 0;
+    margin-left: 10px;
+    margin-right: 10px;
     padding: 0;
     max-width: calc(50% - 20px);
 }
 .row-info {
 }
 .row-thumbnail img {
-    width: 150px;
-    height: 200px;
+    width: 100%;
+    height: auto;
 }
 
 /* ---------------------------------------- horizontal lines */
@@ -259,18 +262,22 @@ hr.light {
 /* ---------------------------------------- top bar */
 
 .menu-container {
-    display: inline-flex;
     width: inherit;
     margin: 0px;
 
-    height: 80px;
+    /*height: 80px;*/
     top: 0;
     z-index: 100;
 
     position: fixed;
-    transition: top 0.5s;
+    /*transition: top 0.5s;*/
 
     background-color: /*#fafafa;*/ #ffffff;
+}
+.row-menu {
+    display: inline-flex;
+    width: inherit;
+    height: 80px;
 }
 .menu-banner {
     width: 25%;

@@ -24,6 +24,6 @@ function changeDivVisibility(id, levelClass) {
 
 function scrollToDiv() {
     $('html, body').animate({
-        scrollTop: divToScrollTo.offset().top - 82
+        scrollTop: divToScrollTo.offset().top - 80
     }, 350);
 }
