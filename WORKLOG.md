@@ -31,3 +31,4 @@ Date | Begun | Stopped | Goal | Result
 24.04.19 | 14:30 | 15:00 | Properly display sidebar on mobile | Fixed sidebar displaying on mobile
 25.04.19 | 11:30 | 12:00 | Update team visualization | Added new team members
 25.04.19 | 12:45 | 13:45 | Update team visualization | Finished team visualization and fixed menu sliding (now looks better)
+25.04.19 | 18:45 | x | Various improvements | x

@@ -493,6 +493,16 @@ hr.light {
         display: none;
     }
 
+    /* ---------------------------------------- default styles of mobile short code elements */
+
+    /* this is due to a silly bug where it thinks you're still hovering on a button altough you only clicked on it */
+    .mobile-shortcodes-title:hover {
+        color: black;
+        border-top-color: black;
+
+        transition: color 0.35s, border-top-color 0.35s;
+    }
+
 }
 
 /* ---------------------------------------- letting the pictures of houses disappear when screen is to small */
