@@ -46,7 +46,10 @@
                     </button>
                 </div>
             </div>
-            <div class="row-hr"><hr class="dark"></div>
+            <div class="row-hr-topbar">
+                <div class="row-hr-menu"><hr class="dark"></div>
+                <div class="row-hr-content"><hr class="dark"></div>
+            </div>
         </div>
 
         <div class="page-container">
