@@ -63,6 +63,7 @@ function mobileAccordeonBase($atts, $content, $level) {
             'id' => 'shortCode_' . $GLOBALS['custom_shortcode_counter'],
             'title' => 'Accordeon',
             'open' => 'no',
+            'separator' => 'yes',
         ),
         $atts
     );
@@ -91,11 +92,15 @@ function mobileAccordeonBase($atts, $content, $level) {
         $initialTitleClass = 'mobile-shortcodes-title-open';
     }
 
+    // first spoiler has no hr
+    if ($attributes['separator'] == 'no') {
+        $initialTitleClass .= ' mobile-shortcodes-title-no-separator';
+    }
+
     // building the output html code
     $output = "";
     $output .= '<div>';
         $output .= '<div id="' . $attributes['id'] . '_title" class="' . $spoilerLevelClass . '-title mobile-shortcodes-title ' . $initialTitleClass . '" onclick="changeDivVisibility(\'' . $attributes['id'] . '\',\'' . $spoilerLevelClass . '\');">';
-            $output .= '<div class="row-hr"><hr class="mobile-shortcodes-hr"></div>';
             $output .= '<p>' . $prefix . ' ' . $attributes['title'] . '</p>';
         $output .='</div>';
         $output .= '<div id="' . $attributes['id'] . '" class="' . $spoilerLevelClass . ' mobile-shortcodes-content" style="' . $initialStyle . '">' . do_shortcode($content) . '</div>';

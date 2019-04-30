@@ -10,9 +10,7 @@
 
             foreach($menus as $menu) {
 
-                if ($first == true) {
-                    $first = false;
-                } else {
+                if (!$first) {
                     echo '<p class="sidebar-button" >&nbsp;</p >';
                 }
 
@@ -33,9 +31,13 @@
                     }
 
                     echo '<div class="sidebar-div ' . $divClass . '">';
-                        echo '<hr>';
+                        if (!$first) {
+                            echo '<hr>';
+                        }
                         echo '<a class="sidebar-button" href="' . $item->url . '" ' . $newTab . '>' . $item->title . '</a>';
                     echo '</div>';
+
+                    $first = false;
                 }
 
             }

@@ -18,7 +18,7 @@ echo '<div class="row-nomargin">';
             // --------------------------------------------------------------------------- Beschreibung
             if (get_row_layout() == 'beschreibung') {
 
-                $content .= '<div class="row-hr"><hr class="dark"></div>';
+                //$content .= '<div class="row-hr"><hr class="dark"></div>';
 
                 $content .= '<div class="row-sub-section">';
 
@@ -108,7 +108,7 @@ echo '<div class="row-nomargin">';
             // --------------------------------------------------------------------------- Team
             } elseif (get_row_layout() == 'team') {
 
-                $open = $hadPreviousContent ? '' : 'open="yes"';
+                $open = $hadPreviousContent ? '' : 'open="yes" separator="no"';
                 $hadPreviousContent = true;
 
                 $content .= '[mobile_accordeon title="' . 'Team' . '" ' . $open . ']';
@@ -170,7 +170,7 @@ echo '<div class="row-nomargin">';
             // --------------------------------------------------------------------------- Links
             } elseif (get_row_layout() == 'links') {
 
-                $open = $hadPreviousContent ? '' : 'open="yes"';
+                $open = $hadPreviousContent ? '' : 'open="yes" separator="no"';
                 $hadPreviousContent = true;
 
                 $content .= '[mobile_accordeon title="' . 'Links' . '" ' . $open . ']';
@@ -197,7 +197,7 @@ echo '<div class="row-nomargin">';
             // --------------------------------------------------------------------------- Kategorie
             } elseif (get_row_layout() == 'kategorie') {
 
-                $open = $hadPreviousContent ? '' : 'open="yes"';
+                $open = $hadPreviousContent ? '' : 'open="yes" separator="no"';
                 $hadPreviousContent = true;
 
                 $content .= '[mobile_accordeon title="' . get_sub_field('titel') . '" ' . $open . ']';

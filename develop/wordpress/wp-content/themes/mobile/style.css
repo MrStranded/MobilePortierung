@@ -303,6 +303,7 @@ hr.light {
 .row-hr-content {
     flex: 75%;
     margin: 0 0 0 20px;
+    max-width: calc(75% - 20px);
 }
 
 /* ---------------------------------------- sidebar */
@@ -425,6 +426,10 @@ hr.light {
     border-top-color: black;
 
     transition: color 0.35s, border-top-color 0.35s;
+}
+
+.mobile-shortcodes-title-no-separator {
+    border-top: 0px;
 }
 
 .mobile-shortcodes-title-open {
