@@ -496,11 +496,12 @@ hr.light {
     }
 
     .row-hr-menu {
-        flex: 85%;
+        flex: 100%;
     }
     .row-hr-content {
         flex: 0%;
     }
+
 
     /* ---------------------------------------- sidebar */
 
