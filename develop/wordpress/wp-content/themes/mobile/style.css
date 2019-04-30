@@ -250,6 +250,7 @@ hr.light {
     padding-bottom: 3em;
 }
 .news-post-title {
+    padding-top: 5px;
     text-transform: uppercase;
     letter-spacing: 0.1em;
 }
@@ -259,7 +260,10 @@ hr.light {
     letter-spacing: 0.1em;
     padding-top: 5px;
     padding-bottom: calc(2em + 7px);
+}
 
+.news-post img {
+    margin-top: 20px;
 }
 
 /* ---------------------------------------- top bar */
@@ -401,6 +405,7 @@ hr.light {
 /* ---------------------------------------- default styles of mobile short code elements */
 
 .mobile-shortcodes-title {
+    padding-top: 5px;
     padding-bottom: 3em;
     cursor: pointer;
     margin-left: 0px;
@@ -468,14 +473,15 @@ hr.light {
         width: 100%;
         padding-left: 0;
         padding-right: 0;
-        margin: 0;
+        margin: 0 0 0 10px;
         max-width: calc(100% - 20px);
     }
 
     /* ---------------------------------------- columns of thematic content */
 
     .col {
-        max-width: calc(100% - 20px);
+        margin: 0;
+        max-width: 100%;
     }
 
     .col-image {
@@ -485,6 +491,7 @@ hr.light {
     /* ---------------------------------------- top bar */
 
     .menu-container {
+        max-width: calc(100% - 20px);
     }
     .menu-banner {
         width: initial;
@@ -492,17 +499,19 @@ hr.light {
     }
     .menu-button {
         display: block;
-        flex: 15%;
+        width: 40px;
+        max-width: 40px;
+        margin-right: 10px;
+        flex: auto;
     }
     #slide-menu-title {
-        padding-left: 18px;
+        padding-left: 8px;
     }
 
     .row-hr-menu {
-        flex: 100%;
     }
     .row-hr-content {
-        flex: 0%;
+        display: none;
     }
 
 
@@ -523,6 +532,12 @@ hr.light {
         display: none;
     }
 
+    .sidebar-button {
+        padding-top: 0.7em;
+        padding-bottom: 1em;
+    }
+
+
     /* ---------------------------------------- default styles of mobile short code elements */
 
     /* this is due to a silly bug where it thinks you're still hovering on a button altough you only clicked on it */
@@ -542,11 +557,19 @@ hr.light {
     .col-image {
         display: none;
     }
+
     .col {
         min-width: 420px;
     }
     .sidebar {
         min-width: 290px;
+    }
+
+    .row-hr-menu {
+        min-width: 290px;
+    }
+    .row-hr-content {
+        min-width: 420px;
     }
 
 }
@@ -560,7 +583,8 @@ hr.light {
  * @link https://github.com/jonsuh/hamburgers
  */
 .hamburger {
-    padding: 15px 15px;
+    /*padding: 15px 15px;*/
+    padding-top: 15px;
     display: inline-block;
     cursor: pointer;
     transition-property: opacity, filter;
@@ -584,19 +608,19 @@ hr.light {
 
 .hamburger-box {
     width: 40px;
-    height: 24px;
+    height: 32px;
     display: inline-block;
     position: relative; }
 
 .hamburger-inner {
     display: block;
     top: 50%;
-    margin-top: -2px; }
+    margin-top: -1px; }
 .hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
     width: 40px;
-    height: 4px;
+    height: 2px;
     background-color: #000;
-    border-radius: 4px;
+    border-radius: 0px;
     position: absolute;
     transition-property: transform;
     transition-duration: 0.15s;
@@ -605,9 +629,9 @@ hr.light {
     content: "";
     display: block; }
 .hamburger-inner::before {
-    top: -10px; }
+    top: -14px; }
 .hamburger-inner::after {
-    bottom: -10px; }
+    bottom: -14px; }
 
 /*
    * Collapse
@@ -619,13 +643,13 @@ hr.light {
     transition-delay: 0.13s;
     transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19); }
 .hamburger--collapse .hamburger-inner::after {
-    top: -20px;
+    top: -28px;
     transition: top 0.2s 0.2s cubic-bezier(0.33333, 0.66667, 0.66667, 1), opacity 0.1s linear; }
 .hamburger--collapse .hamburger-inner::before {
     transition: top 0.12s 0.2s cubic-bezier(0.33333, 0.66667, 0.66667, 1), transform 0.13s cubic-bezier(0.55, 0.055, 0.675, 0.19); }
 
 .hamburger--collapse.is-active .hamburger-inner {
-    transform: translate3d(0, -10px, 0) rotate(-45deg);
+    transform: translate3d(0, -14px, 0) rotate(-45deg);
     transition-delay: 0.22s;
     transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); }
 .hamburger--collapse.is-active .hamburger-inner::after {

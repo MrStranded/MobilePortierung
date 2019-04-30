@@ -6,7 +6,6 @@
 
         <div id="content-id" class="content">
             <div class="col">
-                <div class="row-hr"><hr class="dark"></div>
                 <div class="news-title">
                     <h1>News</h1>
                 </div>

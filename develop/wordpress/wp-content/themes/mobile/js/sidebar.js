@@ -25,15 +25,13 @@ function toggleMenu() {
         let sidebar = document.getElementById("sidebar-id");
 
         let $sidebar = $("#sidebar-id");
-        let $content = $("#content-id");
 
         if (sidebar.style.display === "none") {
             sidebar.style.display = "";
             $sidebar.slideUp();
         }
 
-        $sidebar.slideToggle(350);
-        $content.slideToggle(350, goToPreviousScrollPosition);
+        $sidebar.slideToggle(350, goToPreviousScrollPosition);
     }
 }
 
@@ -43,4 +41,6 @@ function goToPreviousScrollPosition() {
             scrollTop: previousScrollPosition
         }, 350);
     }
+
+    $("#content-id").slideToggle(0);
 }
