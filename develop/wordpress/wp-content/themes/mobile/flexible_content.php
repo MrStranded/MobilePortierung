@@ -1,5 +1,11 @@
 <?php
 
+/*
+ * The flexible_content.php file builds up the part of the website which is defined as the custom fields on the
+ * wordpress admin page.
+ * author: Michael Plüss
+ */
+
 echo '<div class="row-nomargin">';
     echo '<div class="col">';
 
@@ -11,14 +17,13 @@ echo '<div class="row-nomargin">';
         // secondly we use it to decide whether custom spoilers should be opened or not
         $hadPreviousContent = false;
 
+        // iterating over all custom fields
         while (have_rows('inhalt')) {
             the_row();
 
             // ---------------------------------------------------------------------------------------------------------
             // --------------------------------------------------------------------------- Beschreibung
             if (get_row_layout() == 'beschreibung') {
-
-                //$content .= '<div class="row-hr"><hr class="dark"></div>';
 
                 $content .= '<div class="row-sub-section">';
 
@@ -43,6 +48,7 @@ echo '<div class="row-nomargin">';
                             $content .= '<hr class="light">';
                             $content .= '<div class="info-block">';
                         };
+                        // when we have both (street and city) then we can create a google maps query
                         if (get_sub_field('strasse') && get_sub_field('ort')) {
                             $hadPreviousContent = true;
 
@@ -75,6 +81,7 @@ echo '<div class="row-nomargin">';
                             $content .= '<div class="info-block">';
                         };
                         if (get_sub_field('telefon')) {
+                            // we possibly have to replace the zero in the beginning of the telephone number with the country code
                             $telnr = get_sub_field('telefon');
                             if (mb_substr($telnr, 0, 1) == '0') {
                                 $telnr = '+41' . mb_substr($telnr, 1);
@@ -94,6 +101,7 @@ echo '<div class="row-nomargin">';
 
                     $content .= '</div>'; // info
 
+                    // --------------------------- actual description
                     if (get_sub_field('text')) {
                         $hadPreviousContent = true;
                         $content .= '<hr class="dark">';
@@ -108,14 +116,15 @@ echo '<div class="row-nomargin">';
             // --------------------------------------------------------------------------- Team
             } elseif (get_row_layout() == 'team') {
 
+                // the first element on the page does not have a horizontal separator
                 $open = $hadPreviousContent ? '' : 'open="yes" separator="no"';
                 $hadPreviousContent = true;
 
                 $content .= '[mobile_accordeon title="' . 'Team' . '" ' . $open . ']';
                 $content .= '<div class="row-sub-section">';
 
-                    $membersOnRow = 0;
-                    $hadPreviousMembers = false;
+                    $membersOnRow = 0; // this value is one for the first member in a row and two for the second
+                    $hadPreviousMembers = false; // between two rows of members, we put a little space, but not before the first
 
                     while (have_rows('mitarbeiter')) {
                         the_row();
@@ -131,15 +140,17 @@ echo '<div class="row-nomargin">';
 
                         $content .= '<div class="col-member">';
 
-                            $content .= '<div class="row-thumbnail">';
+                            // the image
+                            $content .= '<div class="row-thumbnail">'; // this div also scales the image down to the appropriate size
                                 $image_id = get_sub_field('bild');
                                 if ($image_id) {
                                     $content .= wp_get_attachment_image($image_id, 'thumbnail', true, array("class" => "alignright"));
                                 };
                             $content .= '</div>';
 
+                            // info about the team member
                             $content .= '<div class="row-info">';
-                                if (get_sub_field('name')) {
+                                if (get_sub_field('name')) { // the name is turned into a  link to the email, if this info is available
                                     if (get_sub_field('email')) {
                                         $content .= '<a class="link-button" href="mailto: ' . get_sub_field('email') . '">' . get_sub_field('name') . '</a>';
                                     } else {
@@ -170,6 +181,7 @@ echo '<div class="row-nomargin">';
             // --------------------------------------------------------------------------- Links
             } elseif (get_row_layout() == 'links') {
 
+                // the first element on the page does not have a horizontal separator
                 $open = $hadPreviousContent ? '' : 'open="yes" separator="no"';
                 $hadPreviousContent = true;
 
@@ -197,11 +209,19 @@ echo '<div class="row-nomargin">';
             // --------------------------------------------------------------------------- Kategorie
             } elseif (get_row_layout() == 'kategorie') {
 
+                // the first element on the page does not have a horizontal separator
                 $open = $hadPreviousContent ? '' : 'open="yes" separator="no"';
                 $hadPreviousContent = true;
 
                 $content .= '[mobile_accordeon title="' . get_sub_field('titel') . '" ' . $open . ']';
                 $content .= '<div class="row-sub-section">';
+
+                // optional text of category
+                if (get_sub_field('text')) {
+                    $content .= '<div class="link-text">';
+                    $content .= '<p>' . nl2br(get_sub_field('text')) . '</p>';
+                    $content .= '</div>';
+                };
 
                 while (have_rows('unterkategorie')) {
                     the_row();
@@ -229,11 +249,12 @@ echo '<div class="row-nomargin">';
 
     echo '</div>'; // /col
 
+    // finally, we add the pictures of the page, provided there are some
     $images = get_field('bilder');
     if ($images) {
         echo '<div class="col-image">';
         foreach ($images as $image) :
-            echo '<img border="0" style="max-width: 100%;" src="' . wp_get_attachment_image_url($image['ID'], 'large') . '" />';
+            echo '<img border="0" class="row-image" src="' . wp_get_attachment_image_url($image['ID'], 'large') . '" />';
         endforeach;
         echo '</div>';
     };

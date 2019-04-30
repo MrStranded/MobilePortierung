@@ -31,7 +31,9 @@
 
     <div class="container">
 
+        <!-- The menu-container, which always sits on top of the page -->
         <div id="menu-container-id" class="menu-container">
+            <!-- The menu banner and, if on mobile version of website, the menu button-->
             <div class="row-menu">
                 <div class="menu-banner">
                     <a href="<?php echo get_bloginfo( 'wpurl' );?>">
@@ -46,6 +48,7 @@
                     </button>
                 </div>
             </div>
+            <!-- The two horizontal lines, separating the menu from the content of the page -->
             <div class="row-hr-topbar">
                 <div class="row-hr-menu"><hr class="dark"></div>
                 <div class="row-hr-content"><hr class="dark"></div>
@@ -53,6 +56,3 @@
         </div>
 
         <div class="page-container">
-            <!-- <p class="home-description"><?php echo get_bloginfo( 'description' ); ?></p> -->
-
-

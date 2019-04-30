@@ -107,6 +107,9 @@ body {
 .row-content {
 
 }
+.row-image {
+    width: 100%;
+}
 .row-sub-section {
     color: #000000;
     text-transform: none;
