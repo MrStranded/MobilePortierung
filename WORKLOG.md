@@ -32,4 +32,4 @@ Date | Begun | Stopped | Goal | Result
 25.04.19 | 11:30 | 12:00 | Update team visualization | Added new team members
 25.04.19 | 12:45 | 13:45 | Update team visualization | Finished team visualization and fixed menu sliding (now looks better)
 25.04.19 | 18:45 | 19:00 | Various improvements | Fixed red buttons on mobile version
-30.04.19 | 10:10 | x | Fixing the rest of web page | x
+30.04.19 | 10:10 | 11:10 | Fixing the rest of web page | Fixed top bar
