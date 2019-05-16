@@ -35,3 +35,4 @@ Date | Begun | Stopped | Goal | Result
 30.04.19 | 10:10 | 11:10 | Fixing the rest of web page | Fixed top bar
 30.04.19 | 13:20 | 14:20 | Code cleanup and comments | Many comments
 30.04.19 | 15:00 | 18:00 | Discussion with Michael | Finalized website
+16.05.19 | 11:30 | 12:00 |Preparing website for hand-over | I need more info from Sandra
