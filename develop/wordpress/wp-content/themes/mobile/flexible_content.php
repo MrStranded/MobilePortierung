@@ -120,7 +120,12 @@ echo '<div class="row-nomargin">';
                 $open = $hadPreviousContent ? '' : 'open="yes" separator="no"';
                 $hadPreviousContent = true;
 
-                $content .= '[mobile_accordeon title="' . 'Team' . '" ' . $open . ']';
+                $teamName = 'Team';
+                if (get_sub_field('teamName')) {
+                    $teamName = get_sub_field('teamName');
+                }
+
+                $content .= '[mobile_accordeon title="' . $teamName . '" ' . $open . ']';
                 $content .= '<div class="row-sub-section">';
 
                     $membersOnRow = 0; // this value is one for the first member in a row and two for the second
