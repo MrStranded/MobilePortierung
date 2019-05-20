@@ -35,4 +35,7 @@ Date | Begun | Stopped | Goal | Result
 30.04.19 | 10:10 | 11:10 | Fixing the rest of web page | Fixed top bar
 30.04.19 | 13:20 | 14:20 | Code cleanup and comments | Many comments
 30.04.19 | 15:00 | 18:00 | Discussion with Michael | Finalized website
-16.05.19 | 11:30 | 12:00 |Preparing website for hand-over | I need more info from Sandra
+16.05.19 | 11:30 | 12:00 | Preparing website for hand-over | I need more info from Sandra
+20.05.19 | 10:00 | 11:40 | Filling data into wordpress | Filled most houses in
+20.05.19 | 12:05 | 12:25 | Rest of houses | They are now online
+20.05.19 | 13:00 | 17:30 | Discuss and learn website with Sandra | More changes required

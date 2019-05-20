@@ -107,6 +107,7 @@ echo '<div class="row-nomargin">';
                         $content .= '<hr class="dark">';
                         $content .= '<div class="info-block link-text">';
                             $content .= '<p>' . nl2br(get_sub_field('text')) . '</p>';
+                            //$content .= get_sub_field('text');
                         $content .= '</div>'; // / info-block
                     };
 
@@ -201,7 +202,7 @@ echo '<div class="row-nomargin">';
                     if (get_sub_field('beschreibung')) {
                         $content .= '<p>' . nl2br(get_sub_field('beschreibung')) . '</p>';
                     };
-                    $content .= '<a class="link-button" href="' . get_sub_field('url') . '">' . get_sub_field('name') . '</a>';
+                    $content .= '<a class="link-button" target="_blank" href="' . get_sub_field('url') . '">' . get_sub_field('name') . '</a>';
 
                     $content .= '</div>'; // /row-link
 
