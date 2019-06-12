@@ -39,3 +39,4 @@ Date | Begun | Stopped | Goal | Result
 20.05.19 | 10:00 | 11:40 | Filling data into wordpress | Filled most houses in
 20.05.19 | 12:05 | 12:25 | Rest of houses | They are now online
 20.05.19 | 13:00 | 17:30 | Discuss and learn website with Sandra | More changes required
+12.06.19 | 14:00 | x | Cleanup on website | x

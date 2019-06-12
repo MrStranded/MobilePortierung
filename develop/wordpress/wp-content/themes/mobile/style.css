@@ -317,6 +317,7 @@ hr.light {
 
 .sidebar {
     flex: 25%;
+    max-width: 25%;
 }
 
 .sidebar-button {
