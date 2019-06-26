@@ -169,7 +169,7 @@ echo '<div class="row-nomargin">';
                             $content .= '</div>';
 
                         $content .= '</div>'; // /col-member
-                        if ($membersOnRow == 2) {
+                        if ($membersOnRow == 3) {
                             $content .= '</div>'; // /row-member
                             $membersOnRow = 0;
                         };
@@ -191,7 +191,7 @@ echo '<div class="row-nomargin">';
                 $open = $hadPreviousContent ? '' : 'open="yes" separator="no"';
                 $hadPreviousContent = true;
 
-                $content .= '[mobile_accordeon title="' . 'Links' . '" ' . $open . ']';
+                $content .= '[mobile_accordeon title="' . 'Informationen' . '" ' . $open . ']';
                 $content .= '<div class="row-sub-section">';
 
                 while (have_rows('link')) {

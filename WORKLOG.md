@@ -39,4 +39,5 @@ Date | Begun | Stopped | Goal | Result
 20.05.19 | 10:00 | 11:40 | Filling data into wordpress | Filled most houses in
 20.05.19 | 12:05 | 12:25 | Rest of houses | They are now online
 20.05.19 | 13:00 | 17:30 | Discuss and learn website with Sandra | More changes required
-12.06.19 | 14:00 | x | Cleanup on website | x
+12.06.19 | 14:00 | 15:00 | Cleanup on website | Wordpress is now in german
+26.06.19 | 13:10 | 14:40 | Some more finishing up to do | I think it is done

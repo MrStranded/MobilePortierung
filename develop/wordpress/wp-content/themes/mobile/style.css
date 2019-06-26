@@ -157,6 +157,8 @@ body {
 .row-info {
 }
 .row-thumbnail img {
+    max-width: 120px;
+    max-height: 160px;
     width: 100%;
     height: auto;
 }
