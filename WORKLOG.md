@@ -41,3 +41,5 @@ Date | Begun | Stopped | Goal | Result
 20.05.19 | 13:00 | 17:30 | Discuss and learn website with Sandra | More changes required
 12.06.19 | 14:00 | 15:00 | Cleanup on website | Wordpress is now in german
 26.06.19 | 13:10 | 14:40 | Some more finishing up to do | I think it is done
+04.07.19 | 13:00 | 14:00 | Taking a look at confluence | Cloud > Server
+04.07.19 | 14:35 | 16:15 | A deeper look | Sent email to Stefan
